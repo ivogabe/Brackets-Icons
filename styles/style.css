@@ -1,0 +1,17 @@
+@font-face {
+	font-family: "Ionicons";
+	src: url("../fonts/ionicons.ttf");
+}
+
+.file-icon {
+	font-family: "Ionicons";
+	text-align: center;
+	font-size: 16px;
+}
+
+#project-files-container ins {
+
+}
+#project-files-container a {
+	padding-left: 10009px;
+}

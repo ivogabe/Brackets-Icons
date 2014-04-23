@@ -15,16 +15,19 @@ define(function(require, exports, module) {
 
 		css: {
 			color: '#0270b9',
-			icon: '\uf219'
+			icon: '\uf219',
+			size: 12
 		},
 
 		js: {
 			color: '#e5a228',
-			icon: '\uf2db'
+			icon: '\uf2db',
+			size: 12
 		},
 		ts: {
 			color: '#0074c1',
-			icon: '\uf2db'
+			icon: '\uf2db',
+			size: 12
 		},
 		coffee: {
 			color: '#28334b',
@@ -117,7 +120,8 @@ define(function(require, exports, module) {
 			$new.text(data.icon);
 			$new.addClass('file-icon');
 			$new.css({
-				color: data.color
+				color: data.color,
+				fontSize: (data.size || 16) + 'px'
 			});
 			$(this).prepend($new);
 		});

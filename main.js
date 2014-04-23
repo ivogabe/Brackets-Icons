@@ -101,6 +101,7 @@ define(function(require, exports, module) {
 	};
 
 	var ProjectManager = brackets.getModule('project/ProjectManager');
+	var DocumentManager = brackets.getModule('document/DocumentManager');
 	var ExtensionUtils = brackets.getModule("utils/ExtensionUtils");
 
 	ExtensionUtils.loadStyleSheet(module, "styles/style.css");
@@ -108,7 +109,7 @@ define(function(require, exports, module) {
 	function renderFiles() {
 		$('#project-files-container ul').removeClass('jstree-no-icons').addClass('jstree-icons');
 
-		$items = $('#project-files-container li>a');
+		var $items = $('#project-files-container li>a');
 
 		$items.each(function(index) {
 			var ext = ($(this).find('.extension').text() || '').substr(1);
@@ -121,7 +122,28 @@ define(function(require, exports, module) {
 				return;
 			}
 
-			$new = $(this).find('.jstree-icon');
+			var $new = $(this).find('.jstree-icon');
+			$new.text(data.icon);
+			$new.addClass('file-icon');
+			$new.css({
+				color: data.color,
+				fontSize: (data.size || 16) + 'px'
+			});
+		});
+	}
+	function renderWorkingSet() {
+		$('#open-files-container li>a>.file-icon').remove();
+
+		var $items = $('#open-files-container li>a');
+
+		$items.each(function(index) {
+			var ext = ($(this).find('.extension').text() || '').substr(1);
+
+			var data;
+
+			data = fileInfo[ext] || def;
+
+			var $new = $('<div>');
 			$new.text(data.icon);
 			$new.addClass('file-icon');
 			$new.css({
@@ -139,5 +161,9 @@ define(function(require, exports, module) {
 
 		$('#project-files-container').off(events, renderFiles);
 		$('#project-files-container').on(events, renderFiles);
+	});
+
+	$(DocumentManager).on("workingSetAdd workingSetAddList workingSetRemove workingSetRemoveList fileNameChange pathDeleted", function() { // TODO: workingSetSort ?
+		renderWorkingSet();
 	});
 });

@@ -19,6 +19,11 @@ define(function(require, exports, module) {
 			size: 12
 		},
 
+		php: {
+			color: '#6976c3',
+			icon: '\uf270'
+		},
+
 		js: {
 			color: '#e5a228',
 			icon: '\uf2db',

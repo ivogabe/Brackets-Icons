@@ -9,6 +9,7 @@ This extension adds file icons (from the [Ionicons](https://github.com/driftyco/
  - HTML
  - SVG
  - XML
+ - PHP
  - Shell script
  - PNG, JPG, JPEG, TIFF
  - GIF

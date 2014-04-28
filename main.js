@@ -1,100 +1,50 @@
 define(function(require, exports, module) {
-	var fileInfo = {
-		html: {
-			color: '#E34C26',
-			icon: '\uf271'
-		},
-		svg: {
-			color: '#ff9900',
-			icon: '\uf271'
-		},
-		xml: {
-			color: '#ff6600',
-			icon: '\uf271'
-		},
+	var fileInfo = {};
 
-		css: {
-			color: '#0270b9',
-			icon: '\uf219',
-			size: 12
-		},
+	function addIcon(extension, icon, color, size) {
+		fileInfo[extension] = {
+			icon: icon,
+			color: color,
+			size: size
+		};
+	}
+	function addAlias(extension, other) {
+		fileInfo[extension] = fileInfo[other];
+	}
 
-		php: {
-			color: '#6976c3',
-			icon: '\uf270'
-		},
+	// XML
+	addIcon('xml',    '\uf271', '#ff6600');
+	addIcon('html',   '\uf271', '#E34C26');
+	addIcon('svg',    '\uf271', '#ff9900');
 
-		js: {
-			color: '#e5a228',
-			icon: '\uf2db',
-			size: 12
-		},
-		ts: {
-			color: '#0074c1',
-			icon: '\uf2db',
-			size: 12
-		},
-		coffee: {
-			color: '#28334b',
-			icon: '\uf272'
-		},
+	// Stylesheets
+	addIcon('css',    '\uf219', '#0270b9', 12);
 
-		json: {
-			color: '#e5a228',
-			icon: '\uf195'
-		},
+	// JavaScript
+	addIcon('js',     '\uf2db', '#e5a228', 12);
+	addIcon('ts',     '\uf2db', '#0074c1', 12);
+	addIcon('coffee', '\uf272', '#425d99');
+	addIcon('json',   '\uf195', '#e5a228');
 
-		sh: {
-			color: '#008d00',
-			icon: '\uf12e'
-		},
+	// Server side
+	addIcon('php',    '\uf270', '#6976c3');
 
-		// images
-		png: {
-			color: '#ff4000',
-			icon: '\uf147'
-		},
-		jpg: {
-			color: '#ff4000',
-			icon: '\uf147'
-		},
-		jpeg: {
-			color: '#ff4000',
-			icon: '\uf147'
-		},
-		tiff: {
-			color: '#ff4000',
-			icon: '\uf147'
-		},
-		gif: {
-			color: '#ff4000',
-			icon: '\uf148'
-		},
+	// Images
+	addIcon('png',    '\uf147', '#ff4000');
+	addAlias('jpg',   'png');
+	addAlias('jpeg',  'png');
+	addAlias('tiff',  'png');
+	addIcon('gif',    '\uf148', '#ff4000');
 
-		// videos
-		mp4: {
-			color: '#008d00',
-			icon: '\f1f3'
-		},
-		webm: {
-			color: '#008d00',
-			icon: '\f1f3'
-		},
-		ogg: {
-			color: '#008d00',
-			icon: '\f1f3'
-		},
+	// Videos
+	addIcon('mp4',    '\uf1f3', '#008d00');
+	addAlias('webm',  'mp4');
+	addAlias('ogg',   'mp4');
 
-		// audio
-		mp3: {
-			color: '#921100',
-			icon: '\uf259'
-		},
-		wav: {
-			color: '#921100',
-			icon: '\uf259'
-		}
-	};
+	// Audio
+	addIcon('mp3',    '\uf259', '#921100');
+	addAlias('wav',   'mp3');
+
 	var def = {
 		color: '#fff',
 		icon: '\uf12f'
@@ -117,7 +67,7 @@ define(function(require, exports, module) {
 			var data;
 
 			if ($(this).parent().hasClass('jstree-leaf')) {
-				data = fileInfo[ext] || def;
+				data = fileInfo.hasOwnProperty(ext) ? fileInfo[ext] : def;
 			} else {
 				return;
 			}
@@ -139,9 +89,7 @@ define(function(require, exports, module) {
 		$items.each(function(index) {
 			var ext = ($(this).find('.extension').text() || '').substr(1);
 
-			var data;
-
-			data = fileInfo[ext] || def;
+			var data = fileInfo.hasOwnProperty(ext) ? fileInfo[ext] : def;
 
 			var $new = $('<div>');
 			$new.text(data.icon);

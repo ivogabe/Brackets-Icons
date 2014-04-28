@@ -10,6 +10,7 @@ This extension adds file icons (from the [Ionicons](https://github.com/driftyco/
  - SVG
  - XML
  - PHP
+ - CSS, SASS, Less, Stylus
  - Shell script
  - PNG, JPG, JPEG, TIFF
  - GIF

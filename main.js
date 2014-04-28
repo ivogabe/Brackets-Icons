@@ -19,6 +19,10 @@ define(function(require, exports, module) {
 
 	// Stylesheets
 	addIcon('css',    '\uf219', '#0270b9', 12);
+	addIcon('scss',   '\uf219', '#c6538c', 12);
+	addAlias('sass',  'scss');
+	addIcon('less',   '\uf219', '#2b5086', 12);
+	addIcon('styl',   '\uf219', '#b3d107', 12);
 
 	// JavaScript
 	addIcon('js',     '\uf2db', '#e5a228', 12);

@@ -33,6 +33,10 @@ define(function(require, exports, module) {
 	// Server side
 	addIcon('php',    '\uf270', '#6976c3');
 
+	// Java
+	addIcon('java',   '\uf272', '#5382A1');
+	addAlias('class', 'java');
+
 	// Images
 	addIcon('png',    '\uf147', '#ff4000');
 	addAlias('jpg',   'png');

@@ -37,6 +37,9 @@ define(function(require, exports, module) {
 	addIcon('java',   '\uf272', '#5382A1');
 	addAlias('class', 'java');
 
+	// Shell
+	addIcon('sh',     '\uf12e', '#008d00');
+
 	// Images
 	addIcon('png',    '\uf147', '#ff4000');
 	addAlias('jpg',   'png');

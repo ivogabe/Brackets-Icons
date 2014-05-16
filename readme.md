@@ -13,6 +13,7 @@ This extension adds file icons (from the [Ionicons](https://github.com/driftyco/
  - Java
  - CSS, SASS, Less, Stylus
  - Shell script
+ - Markdown
  - PNG, JPG, JPEG, TIFF
  - GIF
  - MP4, WebM, OGG

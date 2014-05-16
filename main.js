@@ -56,6 +56,9 @@ define(function(require, exports, module) {
 	addIcon('mp3',    '\uf259', '#921100');
 	addAlias('wav',   'mp3');
 
+	// Readme
+	addIcon('md',     /*'\uf12e'*/ '\uf2d0', '#b94700', 12);
+
 	var def = {
 		color: '#fff',
 		icon: '\uf12f'

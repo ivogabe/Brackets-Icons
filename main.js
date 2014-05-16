@@ -125,7 +125,7 @@ define(function(require, exports, module) {
 		$('#project-files-container').on(events, renderFiles);
 	});
 
-	$(DocumentManager).on("workingSetAdd workingSetAddList workingSetRemove workingSetRemoveList fileNameChange pathDeleted", function() { // TODO: workingSetSort ?
+	$(DocumentManager).on("workingSetAdd workingSetAddList workingSetRemove workingSetRemoveList fileNameChange pathDeleted workingSetSort", function() {
 		renderWorkingSet();
 	});
 });

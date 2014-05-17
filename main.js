@@ -45,6 +45,7 @@ define(function(require, exports, module) {
 	addAlias('jpg',   'png');
 	addAlias('jpeg',  'png');
 	addAlias('tiff',  'png');
+	addAlias('ico',   'png');
 	addIcon('gif',    '\uf148', '#ff4000');
 
 	// Videos

@@ -14,7 +14,7 @@ This extension adds file icons (from the [Ionicons](https://github.com/driftyco/
  - CSS, SASS, Less, Stylus
  - Shell script
  - Markdown
- - PNG, JPG, JPEG, TIFF
+ - PNG, JPG, JPEG, TIFF, ICO
  - GIF
  - MP4, WebM, OGG
  - MP3, WAV

@@ -29,6 +29,7 @@ define(function(require, exports, module) {
 	addIcon('ts',     '\uf2db', '#0074c1', 12);
 	addIcon('coffee', '\uf272', '#425d99');
 	addIcon('json',   '\uf195', '#e5a228');
+	addIcon('ls',     '\uf269', '#369bd7');
 
 	// Server side
 	addIcon('php',    '\uf270', '#6976c3');

@@ -6,6 +6,7 @@ This extension adds file icons (from the [Ionicons](https://github.com/driftyco/
  - JSON
  - TypeScript
  - CoffeeScript
+ - LiveScript
  - HTML
  - SVG
  - XML

@@ -62,8 +62,9 @@ define(function(require, exports, module) {
 	addIcon('java',   '\uf272', '#5382A1');
 	addAlias('class', 'java');
 
-	// Shell
+	// Shell and friends
 	addIcon('sh',     '\uf12e', '#008d00');
+	addIcon('bat',    '\uf247', '#60c910');
 
 	// Images
 	addIcon('png',    '\uf147', '#ff4000');

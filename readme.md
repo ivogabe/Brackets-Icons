@@ -13,7 +13,7 @@ This extension adds file icons (from the [Ionicons](https://github.com/driftyco/
  - PHP
  - Java
  - CSS, SASS, Less, Stylus
- - Shell script
+ - Shell script, Batch
  - Markdown
  - PNG, JPG, JPEG, TIFF, ICO
  - GIF

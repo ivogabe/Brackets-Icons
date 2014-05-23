@@ -30,8 +30,6 @@ define(function(require, exports, module) {
 			lightness = (lightness + (extension.charCodeAt(i) * 3 % 40) + 30) / 2;
 		}
 
-		console.log(extension + ' hsl(' + Math.round(hue) + ', ' + Math.round(saturnation) + '%, ' + Math.round(lightness) + '%)');
-
 		return {
 			color: 'hsl(' + Math.round(hue) + ', ' + Math.round(saturnation) + '%, ' + Math.round(lightness) + '%)',
 			icon: '\uf12f'

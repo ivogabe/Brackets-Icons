@@ -11,6 +11,32 @@ define(function(require, exports, module) {
 	function addAlias(extension, other) {
 		fileInfo[extension] = fileInfo[other];
 	}
+	function getDefaultIcon(extension) {
+		if (extension === '') {
+			return {
+				color: '#fff',
+				icon: '\uf12f'
+			};
+		}
+
+		var hue = 0;
+		var saturnation = 90;
+		var lightness = 50;
+
+		for (var i = 0; i < extension.length; ++i) {
+			hue += extension.charCodeAt(i) * 42 * (i + 2);
+			hue %= 256;
+			saturnation = (saturnation + (extension.charCodeAt(i) % 30) + 70) / 2;
+			lightness = (lightness + (extension.charCodeAt(i) * 3 % 40) + 30) / 2;
+		}
+
+		console.log(extension + ' hsl(' + Math.round(hue) + ', ' + Math.round(saturnation) + '%, ' + Math.round(lightness) + '%)');
+
+		return {
+			color: 'hsl(' + Math.round(hue) + ', ' + Math.round(saturnation) + '%, ' + Math.round(lightness) + '%)',
+			icon: '\uf12f'
+		};
+	}
 
 	// XML
 	addIcon('xml',    '\uf271', '#ff6600');
@@ -61,11 +87,6 @@ define(function(require, exports, module) {
 	// Readme
 	addIcon('md',     /*'\uf12e'*/ '\uf2d0', '#b94700', 12);
 
-	var def = {
-		color: '#fff',
-		icon: '\uf12f'
-	};
-
 	var ProjectManager = brackets.getModule('project/ProjectManager');
 	var DocumentManager = brackets.getModule('document/DocumentManager');
 	var ExtensionUtils = brackets.getModule("utils/ExtensionUtils");
@@ -83,7 +104,7 @@ define(function(require, exports, module) {
 			var data;
 
 			if ($(this).parent().hasClass('jstree-leaf')) {
-				data = fileInfo.hasOwnProperty(ext) ? fileInfo[ext] : def;
+				data = fileInfo.hasOwnProperty(ext) ? fileInfo[ext] : getDefaultIcon(ext);
 			} else {
 				return;
 			}
@@ -105,7 +126,7 @@ define(function(require, exports, module) {
 		$items.each(function(index) {
 			var ext = ($(this).find('.extension').text() || '').substr(1);
 
-			var data = fileInfo.hasOwnProperty(ext) ? fileInfo[ext] : def;
+			var data = fileInfo.hasOwnProperty(ext) ? fileInfo[ext] : getDefaultIcon(ext);
 
 			var $new = $('<div>');
 			$new.text(data.icon);

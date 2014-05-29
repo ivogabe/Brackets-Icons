@@ -96,6 +96,11 @@ define(function(require, exports, module) {
 	addIcon('gitignore', '\uf128', '#f64d27', 14);
 	addIcon('gitmodules', '\uf2c0', '#f64d27', 17);
 
+	// Webservers
+	addIcon('htaccess', '\uf1f0', '#e41a54', 18);
+	addIcon('htpasswd', '\uf1a8', '#6c369c', 18);
+	addIcon('conf',   '\uf195', '#009900');
+
 	// Other text files
 	addIcon('txt',    '\uf12e', '#4192c1');
 	addIcon('log',    '\uf2e6', '#225dc9');

@@ -24,6 +24,7 @@ This extension adds file icons (from the [Ionicons](https://github.com/driftyco/
  - EOT, TTF, WOFF
  - GitIgnore, GitModules
  - NPMIgnore
+ - HTAccess, HTPasswd, Conf
 
 You can request more file formats by creating an issue. Choose the icon [here](http://ionicons.com) and add a color (in hex format) to the issue.
 

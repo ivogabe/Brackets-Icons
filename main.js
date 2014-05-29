@@ -39,7 +39,6 @@ define(function(require, exports, module) {
 	// XML
 	addIcon('xml',    '\uf271', '#ff6600');
 	addIcon('html',   '\uf271', '#E34C26');
-	addIcon('svg',    '\uf271', '#ff9900');
 
 	// Stylesheets
 	addIcon('css',    '\uf219', '#0270b9', 12);
@@ -67,12 +66,14 @@ define(function(require, exports, module) {
 	addIcon('bat',    '\uf247', '#60c910');
 
 	// Images
-	addIcon('png',    '\uf147', '#ff4000');
-	addAlias('jpg',   'png');
-	addAlias('jpeg',  'png');
-	addAlias('tiff',  'png');
-	addAlias('ico',   'png');
-	addIcon('gif',    '\uf148', '#ff4000');
+	addIcon('png',    '\uf147', '#dbb1a9');
+	addIcon('jpg',    '\uf147', '#dedfa3');
+	addAlias('jpeg',  'jpg');
+	addIcon('tiff',   '\uf147', '#ff4000');
+	addIcon('ico',    '\uf147', '#b6d2d1');
+	addIcon('svg',    '\uf147', '#c0c5eb');
+
+	addIcon('gif',    '\uf148', '#aaecc0');
 
 	// Videos
 	addIcon('mp4',    '\uf1f3', '#008d00');

@@ -87,6 +87,15 @@ define(function(require, exports, module) {
 	// Readme
 	addIcon('md',     /*'\uf12e'*/ '\uf2d0', '#b94700', 12);
 
+	// Git
+	addIcon('gitignore', '\uf128', '#f64d27', 14);
+	addIcon('gitmodules', '\uf2c0', '#f64d27', 17);
+
+	// Other text files
+	addIcon('txt',    '\uf12e', '#4192c1');
+	addIcon('log',    '\uf2e6', '#225dc9');
+	addIcon('npmignore', '\uf128', '#cb3837', 14);
+
 	var ProjectManager = brackets.getModule('project/ProjectManager');
 	var DocumentManager = brackets.getModule('document/DocumentManager');
 	var ExtensionUtils = brackets.getModule("utils/ExtensionUtils");

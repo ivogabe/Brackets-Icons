@@ -14,11 +14,15 @@ This extension adds file icons (from the [Ionicons](https://github.com/driftyco/
  - Java
  - CSS, SASS, Less, Stylus
  - Shell script, Batch
+ - TXT
+ - Log
  - Markdown
  - PNG, JPG, JPEG, TIFF, ICO
  - GIF
  - MP4, WebM, OGG
  - MP3, WAV
+ - GitIgnore, GitModules
+ - NPMIgnore
 
 You can request more file formats by creating an issue. Choose the icon [here](http://ionicons.com) and add a color (in hex format) to the issue.
 

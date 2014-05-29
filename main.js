@@ -84,6 +84,11 @@ define(function(require, exports, module) {
 	addIcon('mp3',    '\uf259', '#921100');
 	addAlias('wav',   'mp3');
 
+	// Fonts
+	addIcon('ttf',    '\uf241', '#b42950');
+	addIcon('eot',    '\uf241', '#b36908');
+	addIcon('woff',    '\uf241', '#7f4bb2');
+
 	// Readme
 	addIcon('md',     /*'\uf12e'*/ '\uf2d0', '#b94700', 12);
 

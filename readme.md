@@ -21,6 +21,7 @@ This extension adds file icons (from the [Ionicons](https://github.com/driftyco/
  - GIF
  - MP4, WebM, OGG
  - MP3, WAV
+ - EOT, TTF, WOFF
  - GitIgnore, GitModules
  - NPMIgnore
 

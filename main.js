@@ -91,6 +91,7 @@ define(function(require, exports, module) {
 
 	// Readme
 	addIcon('md',     /*'\uf12e'*/ '\uf2d0', '#b94700', 12);
+	addAlias('markdown', 'md');
 
 	// Git
 	addIcon('gitignore', '\uf128', '#f64d27', 14);

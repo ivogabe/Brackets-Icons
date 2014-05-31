@@ -106,6 +106,7 @@ define(function(require, exports, module) {
 	addIcon('txt',    '\uf12e', '#4192c1');
 	addIcon('log',    '\uf2e6', '#225dc9');
 	addIcon('npmignore', '\uf128', '#cb3837', 14);
+	addIcon('yml',   '\uf20e', '#008000');
 
 	var ProjectManager = brackets.getModule('project/ProjectManager');
 	var DocumentManager = brackets.getModule('document/DocumentManager');

@@ -102,6 +102,15 @@ define(function(require, exports, module) {
 	addIcon('htpasswd', '\uf1a8', '#6c369c', 18);
 	addIcon('conf',   '\uf195', '#009900');
 
+	// Archive
+	addIcon('zip',    '\uf283', '#008858');
+	addIcon('rar',    '\uf283', '#005888');
+	addIcon('7z',     '\uf283', '#880058');
+	addIcon('tgz',    '\uf283', '#7900bc');
+	addIcon('tar',    '\uf283', '#885800');
+	addIcon('gz',     '\uf283', '#588800');
+	addIcon('bzip',   '\uf283', '#884300');
+
 	// Other text files
 	addIcon('txt',    '\uf12e', '#4192c1');
 	addIcon('log',    '\uf2e6', '#225dc9');

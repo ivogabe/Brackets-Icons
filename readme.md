@@ -26,6 +26,7 @@ This extension adds file icons (from the [Ionicons](https://github.com/driftyco/
  - NPMIgnore
  - HTAccess, HTPasswd, Conf
  - YAML
+ - Zip, Rar, 7z, Tgz, Tar, Gz, Bzip
 
 You can request more file formats by creating an issue. Choose the icon [here](http://ionicons.com) and add a color (in hex format) to the issue.
 

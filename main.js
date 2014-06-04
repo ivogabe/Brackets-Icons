@@ -181,4 +181,7 @@ define(function(require, exports, module) {
 	$(DocumentManager).on("workingSetAdd workingSetAddList workingSetRemove workingSetRemoveList fileNameChange pathDeleted workingSetSort", function() {
 		renderWorkingSet();
 	});
+
+	renderFiles();
+	renderWorkingSet();
 });

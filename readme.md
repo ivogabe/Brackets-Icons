@@ -1,6 +1,11 @@
 Brackets Icons
 ==============
-This extension adds file icons (from the [Ionicons](https://github.com/driftyco/ionicons) project) to the brackets file tree. The following files are supported at the moment:
+This extension adds file icons (from the [Ionicons](https://github.com/driftyco/ionicons) project) to the brackets file tree. 
+![Brackets Icons](https://raw.githubusercontent.com/ivogabe/Brackets-Icons/master/screenshots/screenshot-1.png)
+
+Supported files
+---------------
+The following files are supported at the moment:
 
  - JavaScript
  - JSON

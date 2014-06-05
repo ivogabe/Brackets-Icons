@@ -129,7 +129,7 @@ define(function(require, exports, module) {
 		var $items = $('#project-files-container li>a');
 
 		$items.each(function(index) {
-			var ext = ($(this).find('.extension').text() || '').substr(1);
+			var ext = ($(this).find('.extension').text() || '').substr(1).toLowerCase();
 
 			var data;
 

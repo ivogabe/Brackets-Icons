@@ -31,6 +31,7 @@ The following files are supported at the moment:
  - NPMIgnore
  - HTAccess, HTPasswd, Conf
  - YAML
+ - Project, Jscsrc, Jshintrc, Csslintrc, Todo, Classpath
  - Zip, Rar, 7z, Tgz, Tar, Gz, Bzip
 
 You can request more file formats by creating an issue. Choose the icon [here](http://ionicons.com) and add a color (in hex format) to the issue.

@@ -111,6 +111,13 @@ define(function(require, exports, module) {
 	addIcon('gz',     '\uf283', '#588800');
 	addIcon('bzip',   '\uf283', '#884300');
 
+	// Settings
+	addIcon('project', '\uf195', '#777777');
+	addAlias('jscsrc', 'project');
+	addAlias('csslintrc', 'project');
+	addAlias('todo', 'project');
+	addAlias('classpath', 'project');
+
 	// Other text files
 	addIcon('txt',    '\uf12e', '#4192c1');
 	addIcon('log',    '\uf2e6', '#225dc9');

@@ -114,6 +114,7 @@ define(function(require, exports, module) {
 	// Settings
 	addIcon('project', '\uf195', '#777777');
 	addAlias('jscsrc', 'project');
+	addAlias('jshintrc', 'project');
 	addAlias('csslintrc', 'project');
 	addAlias('todo', 'project');
 	addAlias('classpath', 'project');

@@ -94,7 +94,7 @@ define(function(require, exports, module) {
 	addAlias('markdown', 'md');
 
 	// Git
-	addIcon('gitignore', '\uf128', '#f64d27', 14);
+	addIcon('gitignore', '\uf207', '#f64d27', 14);
 	addIcon('gitmodules', '\uf2c0', '#f64d27', 17);
 
 	// Webservers
@@ -122,7 +122,7 @@ define(function(require, exports, module) {
 	// Other text files
 	addIcon('txt',    '\uf12e', '#4192c1');
 	addIcon('log',    '\uf2e6', '#225dc9');
-	addIcon('npmignore', '\uf128', '#cb3837', 14);
+	addIcon('npmignore', '\uf207', '#cb3837', 14);
 	addIcon('yml',   '\uf20e', '#008000');
 
 	var ProjectManager = brackets.getModule('project/ProjectManager');

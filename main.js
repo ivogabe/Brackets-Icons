@@ -94,7 +94,7 @@ define(function(require, exports, module) {
 	addAlias('markdown', 'md');
 
 	// Git
-	addIcon('gitignore', '\uf207', '#f64d27', 14);
+	addIcon('gitignore', '\uf207', '#cd5439', 14);
 	addIcon('gitmodules', '\uf2c0', '#f64d27', 17);
 
 	// Webservers

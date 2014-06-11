@@ -139,7 +139,7 @@ define(function(require, exports, module) {
 		$items.each(function(index) {
 			var ext = ($(this).find('.extension').text() || '').substr(1).toLowerCase();
 			var lastIndex = ext.lastIndexOf('.');
-			if(lastIndex > 0) {
+			if (lastIndex > 0) {
 				ext = ext.substr(lastIndex + 1);
 			}
             
@@ -168,7 +168,7 @@ define(function(require, exports, module) {
 		$items.each(function(index) {
 			var ext = ($(this).find('.extension').text() || '').substr(1);
 			var lastIndex = ext.lastIndexOf('.');
-			if(lastIndex > 0) {
+			if (lastIndex > 0) {
 				ext = ext.substr(lastIndex + 1);
 			}
 

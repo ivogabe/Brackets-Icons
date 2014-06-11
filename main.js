@@ -138,7 +138,11 @@ define(function(require, exports, module) {
 
 		$items.each(function(index) {
 			var ext = ($(this).find('.extension').text() || '').substr(1).toLowerCase();
-
+			var lastIndex = ext.lastIndexOf('.');
+			if(lastIndex > 0) {
+				ext = ext.substr(lastIndex + 1);
+			}
+            
 			var data;
 
 			if ($(this).parent().hasClass('jstree-leaf')) {
@@ -163,6 +167,10 @@ define(function(require, exports, module) {
 
 		$items.each(function(index) {
 			var ext = ($(this).find('.extension').text() || '').substr(1);
+			var lastIndex = ext.lastIndexOf('.');
+			if(lastIndex > 0) {
+				ext = ext.substr(lastIndex + 1);
+			}
 
 			var data = fileInfo.hasOwnProperty(ext) ? fileInfo[ext] : getDefaultIcon(ext);
 

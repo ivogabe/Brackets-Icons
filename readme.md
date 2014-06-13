@@ -15,7 +15,7 @@ The following files are supported at the moment:
  - HTML
  - SVG
  - XML
- - PHP
+ - PHP, SQL
  - Java
  - CSS, SASS, Less, Stylus
  - Shell script, Batch

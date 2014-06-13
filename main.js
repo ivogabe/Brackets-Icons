@@ -56,6 +56,7 @@ define(function(require, exports, module) {
 
 	// Server side
 	addIcon('php',    '\uf270', '#6976c3');
+	addIcon('sql',    '\uf2fe', '#c67f07');
 
 	// Java
 	addIcon('java',   '\uf272', '#5382A1');

@@ -1,6 +1,6 @@
 @font-face {
 	font-family: "Ionicons";
-	src: url("../fonts/ionicons.ttf");
+	src: url("../fonts/ionicons.svg#Ionicons") format("svg");
 }
 
 .file-icon {

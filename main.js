@@ -186,7 +186,7 @@ define(function(require, exports, module) {
 		});
 	}
 
-	$(ProjectManager).on('projectOpen projectRefresh', function() {
+	function projectOpen() {
 		var events = 'load_node.jstree create_node.jstree set_text.jstree';
 
 		renderFiles();
@@ -195,10 +195,12 @@ define(function(require, exports, module) {
 		$('#project-files-container').on(events, renderFiles);
 	});
 
+	$(ProjectManager).on('projectOpen projectRefresh', projectOpen);
+
 	$(DocumentManager).on("workingSetAdd workingSetAddList workingSetRemove workingSetRemoveList fileNameChange pathDeleted workingSetSort", function() {
 		renderWorkingSet();
 	});
 
-	renderFiles();
+	projectOpen();
 	renderWorkingSet();
 });

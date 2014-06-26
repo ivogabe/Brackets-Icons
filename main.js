@@ -193,7 +193,7 @@ define(function(require, exports, module) {
 
 		$('#project-files-container').off(events, renderFiles);
 		$('#project-files-container').on(events, renderFiles);
-	});
+	}
 
 	$(ProjectManager).on('projectOpen projectRefresh', projectOpen);
 

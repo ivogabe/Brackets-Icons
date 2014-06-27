@@ -19,6 +19,7 @@ The following files are supported at the moment:
  - Java
  - CSS, SASS, Less, Stylus
  - Shell script, Batch
+ - Jade
  - TXT
  - Log
  - Markdown

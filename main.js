@@ -170,7 +170,7 @@ define(function(require, exports, module) {
 		var $items = $('#open-files-container li>a');
 
 		$items.each(function(index) {
-			var ext = ($(this).find('.extension').text() || $(this).text() || '').substr(1);
+			var ext = ($(this).find('.extension').text() || $(this).text() || '').substr(1).toLowerCase();
 			var lastIndex = ext.lastIndexOf('.');
 			if (lastIndex > 0) {
 				ext = ext.substr(lastIndex + 1);

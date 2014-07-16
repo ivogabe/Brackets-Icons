@@ -67,7 +67,7 @@ define(function(require, exports, module) {
 	addIcon('bat',    '\uf247', '#60c910');
 
 	// Templating
-	addIcon('jade',   '\uf277', '#01dfa5');
+	addIcon('jade',   '\uf277', '#00a57a');
 
 	// Images
 	addIcon('png',    '\uf147', '#dbb1a9');

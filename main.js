@@ -39,6 +39,7 @@ define(function(require, exports, module) {
 	// XML
 	addIcon('xml',    '\uf271', '#ff6600');
 	addIcon('html',   '\uf271', '#E34C26');
+	addAlias('htm', 'html');
 
 	// Stylesheets
 	addIcon('css',    '\uf219', '#0270b9', 12);

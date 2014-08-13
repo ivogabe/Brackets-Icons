@@ -17,6 +17,7 @@ The following files are supported at the moment:
  - XML
  - PHP, SQL
  - Java
+ - Ruby, Embedded Ruby, RDoc, Cucumber Feature files
  - CSS, SASS, Less, Stylus
  - Shell script, Batch
  - Jade

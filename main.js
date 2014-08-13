@@ -63,6 +63,12 @@ define(function(require, exports, module) {
 	addIcon('java',   '\uf272', '#5382A1');
 	addAlias('class', 'java');
 
+	// Ruby
+	addIcon('rb',     '\uf199', '#9b111e');
+	addAlias('erb',   'rb');
+	addAlias('rdoc',  'rb');
+	addIcon('feature','\uf11a', '#4e8b39');
+
 	// Shell and friends
 	addIcon('sh',     '\uf12e', '#008d00');
 	addIcon('bat',    '\uf247', '#60c910');

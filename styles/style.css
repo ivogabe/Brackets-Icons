@@ -10,7 +10,7 @@
 	width: 20px;
 }
 
-#open-files-container .file-icon {
+#open-files-container .file-icon, .open-files-container .file-icon {
 	display: inline-block;
 	width: 20px;
 	padding-top: 2px;

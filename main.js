@@ -140,6 +140,13 @@ define(function(require, exports, module) {
 	var DocumentManager = brackets.getModule('document/DocumentManager');
 	var ExtensionUtils = brackets.getModule("utils/ExtensionUtils");
 
+	var MainViewManager;
+	try {
+		MainViewManager = brackets.getModule('view/MainViewManager');
+	} catch (e) {
+
+	}
+
 	ExtensionUtils.loadStyleSheet(module, "styles/style.css");
 
 	function renderFiles() {
@@ -153,7 +160,7 @@ define(function(require, exports, module) {
 			if (lastIndex > 0) {
 				ext = ext.substr(lastIndex + 1);
 			}
-            
+
 			var data;
 
 			if ($(this).parent().hasClass('jstree-leaf')) {
@@ -172,9 +179,9 @@ define(function(require, exports, module) {
 		});
 	}
 	function renderWorkingSet() {
-		$('#open-files-container li>a>.file-icon').remove();
+		$('.open-files-container li>a>.file-icon, #open-files-container li>a>.file-icon').remove();
 
-		var $items = $('#open-files-container li>a');
+		var $items = $('.open-files-container li>a, #open-files-container li>a');
 
 		$items.each(function(index) {
 			var ext = ($(this).find('.extension').text() || $(this).text() || '').substr(1).toLowerCase();
@@ -207,9 +214,18 @@ define(function(require, exports, module) {
 
 	$(ProjectManager).on('projectOpen projectRefresh', projectOpen);
 
-	$(DocumentManager).on("workingSetAdd workingSetAddList workingSetRemove workingSetRemoveList fileNameChange pathDeleted workingSetSort", function() {
-		renderWorkingSet();
-	});
+	if (MainViewManager) {
+		console.log('MainViewManager');
+		$(MainViewManager).on("workingSetAdd workingSetAddList workingSetRemove workingSetRemoveList fileNameChange pathDeleted workingSetSort", function() {
+			//renderWorkingSet();
+			setTimeout(renderWorkingSet, 1);
+			// TODO: call renderWorkingSet directly. See issue #30
+		});
+	} else {
+		$(DocumentManager).on("workingSetAdd workingSetAddList workingSetRemove workingSetRemoveList fileNameChange pathDeleted workingSetSort", function() {
+			renderWorkingSet();
+		});
+	}
 
 	projectOpen();
 	renderWorkingSet();

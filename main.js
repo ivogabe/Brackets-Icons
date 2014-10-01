@@ -141,8 +141,10 @@ define(function(require, exports, module) {
 	var ExtensionUtils = brackets.getModule("utils/ExtensionUtils");
 
 	var MainViewManager;
+	var FileTreeView;
 	try {
 		MainViewManager = brackets.getModule('view/MainViewManager');
+		FileTreeView = brackets.getModule("project/FileTreeView");
 	} catch (e) {
 
 	}
@@ -212,7 +214,38 @@ define(function(require, exports, module) {
 		$('#project-files-container').on(events, renderFiles);
 	}
 
-	$(ProjectManager).on('projectOpen projectRefresh', projectOpen);
+	if (!FileTreeView) {
+		// Old Brackets, FileTreeView.addIconProvider not supported
+		$(ProjectManager).on('projectOpen projectRefresh', projectOpen);
+		projectOpen();
+	} else {
+		// New Brackets, FileTreeView.addIconProvider supported
+		FileTreeView.addIconProvider(function(entry) {
+			if (!entry.isFile) {
+				return;
+			}
+			
+			var ext = entry.name;
+			var lastIndex = ext.lastIndexOf('.');
+			if (lastIndex >= 0) {
+				ext = ext.substr(lastIndex + 1);
+			} else {
+				ext = '';
+			}
+			
+			var data = fileInfo.hasOwnProperty(ext) ? fileInfo[ext] : getDefaultIcon(ext);
+
+			var $new = $('<ins>');
+			$new.text(data.icon);
+			$new.addClass('file-icon file-tree-view-icon');
+			$new.css({
+				color: data.color,
+				fontSize: (data.size || 16) + 'px'
+			});
+			return $new;
+		});
+	}
+	
 
 	if (MainViewManager) {
 		console.log('MainViewManager');
@@ -227,6 +260,6 @@ define(function(require, exports, module) {
 		});
 	}
 
-	projectOpen();
+	
 	renderWorkingSet();
 });

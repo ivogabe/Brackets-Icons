@@ -248,8 +248,7 @@ define(function(require, exports, module) {
 	
 
 	if (MainViewManager) {
-		console.log('MainViewManager');
-		$(MainViewManager).on("workingSetAdd workingSetAddList workingSetRemove workingSetRemoveList fileNameChange pathDeleted workingSetSort", function() {
+		$(MainViewManager).on("workingSetAdd workingSetAddList workingSetRemove workingSetRemoveList workingSetSort workingSetUpdate workingSetMove activePaneChange currentFileChange paneLayoutChange paneCreate paneDestroy", function() {
 			//renderWorkingSet();
 			setTimeout(renderWorkingSet, 1);
 			// TODO: call renderWorkingSet directly. See issue #30

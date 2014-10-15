@@ -13,6 +13,6 @@
 		"tree"
     ],
     "engines": {
-        "brackets": ">=0.38.0"
+        "brackets": ">=0.44.0"
     }
 }

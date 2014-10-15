@@ -136,129 +136,40 @@ define(function(require, exports, module) {
 	addIcon('npmignore', '\uf207', '#cb3837', 14);
 	addIcon('yml',   '\uf20e', '#008000');
 
-	var ProjectManager = brackets.getModule('project/ProjectManager');
-	var DocumentManager = brackets.getModule('document/DocumentManager');
 	var ExtensionUtils = brackets.getModule("utils/ExtensionUtils");
 
-	var MainViewManager;
-	var FileTreeView;
-	try {
-		MainViewManager = brackets.getModule('view/MainViewManager');
-		FileTreeView = brackets.getModule("project/FileTreeView");
-	} catch (e) {
-
-	}
+	var FileTreeView = brackets.getModule("project/FileTreeView");
+	var WorkingSetView = brackets.getModule('project/WorkingSetView');
 
 	ExtensionUtils.loadStyleSheet(module, "styles/style.css");
-
-	function renderFiles() {
-		$('#project-files-container ul').removeClass('jstree-no-icons').addClass('jstree-icons');
-
-		var $items = $('#project-files-container li>a');
-
-		$items.each(function(index) {
-			var ext = ($(this).find('.extension').text() || $(this).text().substr(1) || '').substr(1).toLowerCase();
-			var lastIndex = ext.lastIndexOf('.');
-			if (lastIndex > 0) {
-				ext = ext.substr(lastIndex + 1);
-			}
-
-			var data;
-
-			if ($(this).parent().hasClass('jstree-leaf')) {
-				data = fileInfo.hasOwnProperty(ext) ? fileInfo[ext] : getDefaultIcon(ext);
-			} else {
-				return;
-			}
-
-			var $new = $(this).find('.jstree-icon');
-			$new.text(data.icon);
-			$new.addClass('file-icon');
-			$new.css({
-				color: data.color,
-				fontSize: (data.size || 16) + 'px'
-			});
-		});
-	}
-	function renderWorkingSet() {
-		$('.open-files-container li>a>.file-icon, #open-files-container li>a>.file-icon').remove();
-
-		var $items = $('.open-files-container li>a, #open-files-container li>a');
-
-		$items.each(function(index) {
-			var ext = ($(this).find('.extension').text() || $(this).text() || '').substr(1).toLowerCase();
-			var lastIndex = ext.lastIndexOf('.');
-			if (lastIndex > 0) {
-				ext = ext.substr(lastIndex + 1);
-			}
-
-			var data = fileInfo.hasOwnProperty(ext) ? fileInfo[ext] : getDefaultIcon(ext);
-
-			var $new = $('<div>');
-			$new.text(data.icon);
-			$new.addClass('file-icon');
-			$new.css({
-				color: data.color,
-				fontSize: (data.size || 16) + 'px'
-			});
-			$(this).prepend($new);
-		});
-	}
-
-	function projectOpen() {
-		var events = 'load_node.jstree create_node.jstree set_text.jstree';
-
-		renderFiles();
-
-		$('#project-files-container').off(events, renderFiles);
-		$('#project-files-container').on(events, renderFiles);
-	}
-
-	if (!FileTreeView) {
-		// Old Brackets, FileTreeView.addIconProvider not supported
-		$(ProjectManager).on('projectOpen projectRefresh', projectOpen);
-		projectOpen();
-	} else {
-		// New Brackets, FileTreeView.addIconProvider supported
-		FileTreeView.addIconProvider(function(entry) {
-			if (!entry.isFile) {
-				return;
-			}
-			
-			var ext = entry.name;
-			var lastIndex = ext.lastIndexOf('.');
-			if (lastIndex >= 0) {
-				ext = ext.substr(lastIndex + 1);
-			} else {
-				ext = '';
-			}
-			
-			var data = fileInfo.hasOwnProperty(ext) ? fileInfo[ext] : getDefaultIcon(ext);
-
-			var $new = $('<ins>');
-			$new.text(data.icon);
-			$new.addClass('file-icon file-tree-view-icon');
-			$new.css({
-				color: data.color,
-				fontSize: (data.size || 16) + 'px'
-			});
-			return $new;
-		});
-	}
 	
+	var provider = function(entry) {
+		if (!entry.isFile) {
+			return;
+		}
+		
+		var ext = entry.name;
+		var lastIndex = ext.lastIndexOf('.');
+		if (lastIndex >= 0) {
+			ext = ext.substr(lastIndex + 1);
+		} else {
+			ext = '';
+		}
+		
+		var data = fileInfo.hasOwnProperty(ext) ? fileInfo[ext] : getDefaultIcon(ext);
 
-	if (MainViewManager) {
-		$(MainViewManager).on("workingSetAdd workingSetAddList workingSetRemove workingSetRemoveList workingSetSort workingSetUpdate workingSetMove activePaneChange currentFileChange paneLayoutChange paneCreate paneDestroy", function() {
-			//renderWorkingSet();
-			setTimeout(renderWorkingSet, 1);
-			// TODO: call renderWorkingSet directly. See issue #30
+		var $new = $('<ins>');
+		$new.text(data.icon);
+		$new.addClass('file-icon file-tree-view-icon');
+		$new.css({
+			color: data.color,
+			fontSize: (data.size || 16) + 'px'
 		});
-	} else {
-		$(DocumentManager).on("workingSetAdd workingSetAddList workingSetRemove workingSetRemoveList fileNameChange pathDeleted workingSetSort", function() {
-			renderWorkingSet();
-		});
-	}
-
+		return $new;
+	};
 	
+	FileTreeView.addIconProvider(provider);
+	WorkingSetView.addIconProvider(provider);
+
 	renderWorkingSet();
 });

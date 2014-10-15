@@ -170,6 +170,4 @@ define(function(require, exports, module) {
 	
 	FileTreeView.addIconProvider(provider);
 	WorkingSetView.addIconProvider(provider);
-
-	renderWorkingSet();
 });

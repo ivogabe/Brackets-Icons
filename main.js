@@ -43,7 +43,7 @@ define(function(require, exports, module) {
 
 	// Stylesheets
 	addIcon('css',    '\uf219', '#0270b9', 12);
-	addIcon('scss',   '\uf219', '#c6538c', 12);
+	addIcon('scss',   '\uf219', '#CB6899', 12);
 	addAlias('sass',  'scss');
 	addIcon('less',   '\uf219', '#2b5086', 12);
 	addIcon('styl',   '\uf219', '#b3d107', 12);
@@ -112,7 +112,7 @@ define(function(require, exports, module) {
 	addIcon('gitmodules', '\uf2c0', '#f64d27', 17);
 
 	// Webservers
-	addIcon('htaccess', '\uf1f0', '#e41a54', 18);
+	addIcon('htaccess', '\uf1f0', '#93a8be', 18);
 	addIcon('htpasswd', '\uf1a8', '#6c369c', 18);
 	addIcon('conf',   '\uf195', '#009900');
 

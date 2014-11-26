@@ -143,6 +143,13 @@ define(function(require, exports, module) {
 
 	var FileTreeView = brackets.getModule("project/FileTreeView");
 	var WorkingSetView = brackets.getModule('project/WorkingSetView');
+    
+    // Before Brackets 1.1.0, icons had a hack that the margin was set to -10000px, which was corrected by the padding.
+    // This was removed in Brackets 1.1.0
+    var version = /([0-9]+)\.([0-9]+)\.([0-9]+)/.exec(brackets.metadata.version);
+    if ((version[1] === "0") || (version[1] === "1" && version[2] === "0")) { // version[1] is major, version[2] is minor
+        $('body').addClass('icons-margin-correction');
+    }
 
 	ExtensionUtils.loadStyleSheet(module, "styles/style.css");
 	

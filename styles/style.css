@@ -17,5 +17,8 @@
 }
 
 #project-files-container a {
-	padding-left: 10009px;
+	padding-left: 9px;
+}
+.icons-margin-correction #project-files-container a {
+    padding-left: 10009px;
 }

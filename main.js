@@ -32,101 +32,101 @@ define(function(require, exports, module) {
 
 		return {
 			color: 'hsl(' + Math.round(hue) + ', ' + Math.round(saturnation) + '%, ' + Math.round(lightness) + '%)',
-			icon: '\uf12f'
+			icon: 'ion-document'
 		};
 	}
 
 	// XML
-	addIcon('xml',    '\uf271', '#ff6600');
-	addIcon('html',   '\uf271', '#E34C26');
+	addIcon('xml',    'ion-code', '#ff6600');
+	addIcon('html',   'ion-code', '#E34C26');
 	addAlias('htm', 'html');
 
 	// Stylesheets
-	addIcon('css',    '\uf219', '#0270b9', 12);
-	addIcon('scss',   '\uf219', '#CB6899', 12);
+	addIcon('css',    'ion-pound', '#0270b9', 12);
+	addIcon('scss',   'ion-pound', '#CB6899', 12);
 	addAlias('sass',  'scss');
-	addIcon('less',   '\uf219', '#2b5086', 12);
-	addIcon('styl',   '\uf219', '#b3d107', 12);
+	addIcon('less',   'ion-pound', '#2b5086', 12);
+	addIcon('styl',   'ion-pound', '#b3d107', 12);
 
 	// JavaScript
-	addIcon('js',     '\uf2db', '#e5a228', 12);
-	addIcon('ts',     '\uf2db', '#0074c1', 12);
-	addIcon('coffee', '\uf272', '#425d99');
-	addIcon('json',   '\uf195', '#e5a228');
-	addIcon('ls',     '\uf269', '#369bd7');
+	addIcon('js',     'icon-js', '#e5a228', 13); // TODO: JS icon
+	addIcon('ts',     'icon-js', '#0074c1', 13); // TODO: TS icon
+	addIcon('coffee', 'ion-coffee', '#425d99');
+	addIcon('json',   'ion-ios-gear', '#e5a228');
+	addIcon('ls',     'ion-beaker', '#369bd7');
 
 	// Server side
-	addIcon('php',    '\uf270', '#6976c3');
-	addIcon('sql',    '\uf2fe', '#c67f07');
+	addIcon('php',    'ion-code-working', '#6976c3');
+	addIcon('sql',    'ion-soup-can-outline', '#c67f07');
 
 	// Java
-	addIcon('java',   '\uf272', '#5382A1');
+	addIcon('java',   'ion-coffee', '#5382A1');
 	addAlias('class', 'java');
 
 	// Ruby
-	addIcon('rb',     '\uf199', '#9b111e');
+	addIcon('rb',     'ion-heart', '#9b111e');
 	addAlias('erb',   'rb');
 	addAlias('rdoc',  'rb');
-	addIcon('feature','\uf11a', '#4e8b39');
+	addIcon('feature','ion-chatbox-working', '#4e8b39');
     
     // Python
-    addIcon('py',     '\uf1fe', '#f8c63d');
+    addIcon('py',     'ion-social-python', '#f8c63d');
 
 	// Shell and friends
-	addIcon('sh',     '\uf12e', '#008d00');
-	addIcon('bat',    '\uf247', '#60c910');
+	addIcon('sh',     'ion-document-text', '#008d00');
+	addIcon('bat',    'ion-social-windows', '#60c910');
 
 	// Templating
-	addIcon('jade',   '\uf277', '#00a57a');
+	addIcon('jade',   'ion-egg', '#00a57a');
 
 	// Images
-	addIcon('png',    '\uf147', '#dbb1a9');
-	addIcon('jpg',    '\uf147', '#dedfa3');
+	addIcon('png',    'ion-image', '#dbb1a9');
+	addIcon('jpg',    'ion-image', '#dedfa3');
 	addAlias('jpeg',  'jpg');
-	addIcon('tiff',   '\uf147', '#ff4000');
-	addIcon('ico',    '\uf147', '#b6d2d1');
-	addIcon('svg',    '\uf147', '#c0c5eb');
+	addIcon('tiff',   'ion-image', '#ff4000');
+	addIcon('ico',    'ion-image', '#b6d2d1');
+	addIcon('svg',    'ion-image', '#c0c5eb');
 
-	addIcon('gif',    '\uf148', '#aaecc0');
+	addIcon('gif',    'ion-images', '#aaecc0');
 
 	// Videos
-	addIcon('mp4',    '\uf1f3', '#008d00');
+	addIcon('mp4',    'ion-ios-videocam', '#008d00');
 	addAlias('webm',  'mp4');
 	addAlias('ogg',   'mp4');
 
 	// Audio
-	addIcon('mp3',    '\uf259', '#921100');
+	addIcon('mp3',    'ion-volume-medium', '#921100');
 	addAlias('wav',   'mp3');
 
 	// Fonts
-	addIcon('ttf',    '\uf241', '#b42950');
-	addIcon('eot',    '\uf241', '#b36908');
-	addIcon('woff',    '\uf241', '#7f4bb2');
+	addIcon('ttf',    'ion-social-tumblr', '#b42950');
+	addIcon('eot',    'ion-social-tumblr', '#b36908');
+	addIcon('woff',   'ion-social-tumblr', '#7f4bb2');
 
 	// Readme
-	addIcon('md',     /*'\uf12e'*/ '\uf2d0', '#b94700', 12);
+	addIcon('md',     'ion-social-markdown', '#b94700', 12);
 	addAlias('markdown', 'md');
 
 	// Git
-	addIcon('gitignore', '\uf207', '#cd5439', 14);
-	addIcon('gitmodules', '\uf2c0', '#f64d27', 17);
+	addIcon('gitignore', 'ion-minus-circled', '#cd5439', 14);
+	addIcon('gitmodules', 'ion-fork-repo', '#f64d27', 17);
 
 	// Webservers
-	addIcon('htaccess', '\uf1f0', '#93a8be', 18);
-	addIcon('htpasswd', '\uf1a8', '#6c369c', 18);
-	addIcon('conf',   '\uf195', '#009900');
+	addIcon('htaccess', 'ion-ios-unlocked', '#93a8be', 18);
+	addIcon('htpasswd', 'ion-ios-locked', '#6c369c', 18);
+	addIcon('conf',   'ion-ios-gear', '#009900');
 
 	// Archive
-	addIcon('zip',    '\uf283', '#008858');
-	addIcon('rar',    '\uf283', '#005888');
-	addIcon('7z',     '\uf283', '#880058');
-	addIcon('tgz',    '\uf283', '#7900bc');
-	addIcon('tar',    '\uf283', '#885800');
-	addIcon('gz',     '\uf283', '#588800');
-	addIcon('bzip',   '\uf283', '#884300');
+	addIcon('zip',    'ion-briefcase', '#008858');
+	addIcon('rar',    'ion-briefcase', '#005888');
+	addIcon('7z',     'ion-briefcase', '#880058');
+	addIcon('tgz',    'ion-briefcase', '#7900bc');
+	addIcon('tar',    'ion-briefcase', '#885800');
+	addIcon('gz',     'ion-briefcase', '#588800');
+	addIcon('bzip',   'ion-briefcase', '#884300');
 
 	// Settings
-	addIcon('project', '\uf195', '#777777');
+	addIcon('project', 'ion-ios-gear', '#777777');
 	addAlias('jscsrc', 'project');
 	addAlias('jshintrc', 'project');
 	addAlias('csslintrc', 'project');
@@ -134,10 +134,10 @@ define(function(require, exports, module) {
 	addAlias('classpath', 'project');
 
 	// Other text files
-	addIcon('txt',    '\uf12e', '#4192c1');
-	addIcon('log',    '\uf2e6', '#225dc9');
-	addIcon('npmignore', '\uf207', '#cb3837', 14);
-	addIcon('yml',   '\uf20e', '#008000');
+	addIcon('txt',    'ion-document-text', '#4192c1');
+	addIcon('log',    'ion-clipboard', '#225dc9');
+	addIcon('npmignore', 'ion-minus-circled', '#cb3837', 14);
+	addIcon('yml',   'ion-navicon', '#008000');
 
 	var ExtensionUtils = brackets.getModule("utils/ExtensionUtils");
 
@@ -152,6 +152,7 @@ define(function(require, exports, module) {
     }
 
 	ExtensionUtils.loadStyleSheet(module, "styles/style.css");
+	ExtensionUtils.loadStyleSheet(module, "styles/ionicons.min.css");
 	
 	var provider = function(entry) {
 		if (!entry.isFile) {
@@ -169,7 +170,7 @@ define(function(require, exports, module) {
 		var data = fileInfo.hasOwnProperty(ext) ? fileInfo[ext] : getDefaultIcon(ext);
 
 		var $new = $('<ins>');
-		$new.text(data.icon);
+		$new.addClass(data.icon);
 		$new.addClass('file-icon file-tree-view-icon');
 		$new.css({
 			color: data.color,

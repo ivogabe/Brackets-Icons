@@ -1,10 +1,4 @@
-@font-face {
-	font-family: "Ionicons";
-	src: url("../fonts/ionicons.svg#Ionicons") format("svg");
-}
-
 .file-icon {
-	font-family: "Ionicons";
 	text-align: center;
 	font-size: 16px;
 	width: 20px;
@@ -21,4 +15,8 @@
 }
 .icons-margin-correction #project-files-container a {
     padding-left: 10009px;
+}
+
+.icon-js:before {
+	content: '{ }';
 }

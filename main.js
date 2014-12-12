@@ -62,6 +62,9 @@ define(function(require, exports, module) {
 	// Java
 	addIcon('java',   'ion-coffee', '#5382A1');
 	addAlias('class', 'java');
+	
+	// Lua
+	addIcon('lua',    'ion-record', '#00207d', 14);
 
 	// Ruby
 	addIcon('rb',     'ion-heart', '#9b111e');

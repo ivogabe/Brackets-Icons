@@ -169,7 +169,7 @@ define(function(require, exports, module) {
 		var data = fileInfo.hasOwnProperty(ext) ? fileInfo[ext] : getDefaultIcon(ext);
 
 		var $new = $('<ins>');
-		$new.text(data.icon);
+		$new.addClass(data.icon);
 		$new.addClass('file-icon file-tree-view-icon');
 		$new.css({
 			color: data.color,

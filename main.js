@@ -164,6 +164,7 @@ define(function(require, exports, module) {
 	addIcon('txt',    'ion-document-text', '#4192c1');
 	addIcon('log',    'ion-clipboard', '#225dc9');
 	addIcon('npmignore', 'ion-minus-circled', '#cb3837', 14);
+	addIcon('slugignore', 'ion-minus-circled', '#0da064', 14);
 	addIcon('yml',   'ion-navicon', '#008000');
 	addIcon('sqf',   'ion-wand', '#b9e11f');
 

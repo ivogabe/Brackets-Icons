@@ -37,7 +37,7 @@ The following files are supported at the moment:
  - MP3, WAV
  - EOT, TTF, WOFF
  - GitIgnore, GitModules
- - NPMIgnore
+ - NPMIgnore, SlugIgnore
  - HTAccess, HTPasswd, Conf
  - YAML
  - Sqf

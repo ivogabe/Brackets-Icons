@@ -143,6 +143,8 @@ define(function(require, exports, module) {
 	addIcon('tar',    'ion-briefcase', '#885800');
 	addIcon('gz',     'ion-briefcase', '#588800');
 	addIcon('bzip',   'ion-briefcase', '#884300');
+	addIcon('msi',    'ion-briefcase', '#6f8696');
+	addIcon('dmg',    'ion-briefcase', '#6f8696');
 
 	// Settings
 	addIcon('project', 'ion-ios-gear', '#777777');

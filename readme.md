@@ -15,9 +15,16 @@ The following files are supported at the moment:
  - HTML
  - SVG
  - XML
+ - C, C++, C#
+ - Swift
  - PHP, SQL
- - Java
+ - Java, Scala, Groovy
  - Ruby, Embedded Ruby, RDoc, Cucumber Feature files
+ - Perl
+ - Lua
+ - Haxe
+ - VB, VBScript
+ - Clojure
  - CSS, SASS, Less, Stylus
  - Shell script, Batch
  - Jade
@@ -33,8 +40,9 @@ The following files are supported at the moment:
  - NPMIgnore
  - HTAccess, HTPasswd, Conf
  - YAML
- - Project, Jscsrc, Jshintrc, Csslintrc, Todo, Classpath
- - Zip, Rar, 7z, Tgz, Tar, Gz, Bzip
+ - Sqf
+ - Project, Jscsrc, Jshintrc, Csslintrc, Todo, Classpath, Properties
+ - Zip, Rar, 7z, Tgz, Tar, Gz, Bzip, Msi, Dmg
 
 You can request more file formats by creating an issue. Choose the icon [here](http://ionicons.com) and add a color (in hex format) to the issue.
 

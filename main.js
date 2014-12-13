@@ -155,6 +155,10 @@ define(function(require, exports, module) {
 	addAlias('todo', 'project');
 	addAlias('classpath', 'project');
 	addAlias('properties', 'project');
+	addAlias('bowerrc', 'project');
+	addAlias('gruntrc', 'project');
+	addAlias('jsrc', 'project');
+	addAlias('editorconfig', 'project');
 
 	// Other text files
 	addIcon('txt',    'ion-document-text', '#4192c1');

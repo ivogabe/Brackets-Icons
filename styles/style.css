@@ -17,6 +17,11 @@
     padding-left: 10009px;
 }
 
-.icon-js:before {
+.icon-c:before {
 	content: '{ }';
+}
+
+.icon-rotated {
+	transform: rotate(-10deg);
+	-webkit-transform: rotate(-10deg);
 }

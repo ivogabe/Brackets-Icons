@@ -88,9 +88,10 @@ define(function(require, exports, module) {
 	addAlias('erb',   'rb');
 	addAlias('rdoc',  'rb');
 	addIcon('feature','ion-chatbox-working', '#4e8b39');
-    
-    // Python
-    addIcon('py',     'ion-social-python', '#f8c63d');
+
+	// Python
+	addIcon('py',     'ion-social-python', '#f8c63d');
+	addAlias('pyw',   'py');
 
 	// Shell and friends
 	addIcon('sh',     'ion-document-text', '#008d00');

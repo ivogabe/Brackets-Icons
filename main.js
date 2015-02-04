@@ -167,6 +167,7 @@ define(function(require, exports, module) {
 	addIcon('npmignore', 'ion-minus-circled', '#cb3837', 14);
 	addIcon('slugignore', 'ion-minus-circled', '#0da064', 14);
 	addIcon('yml',   'ion-navicon', '#008000');
+	addAlias('yaml', 'yml');
 	addIcon('sqf',   'ion-wand', '#b9e11f');
 
 	var ExtensionUtils = brackets.getModule("utils/ExtensionUtils");

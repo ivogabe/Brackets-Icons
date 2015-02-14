@@ -15,7 +15,7 @@ define(function(require, exports, module) {
 		if (extension === '') {
 			return {
 				color: '#fff',
-				icon: '\uf12f'
+				icon: 'ion-document'
 			};
 		}
 

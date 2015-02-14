@@ -49,8 +49,8 @@ define(function(require, exports, module) {
 	addIcon('styl',   'ion-pound', '#b3d107', 12);
 
 	// JavaScript
-	addIcon('js',     'icon-c', '#e5a228', 13);
-	addIcon('ts',     'icon-c', '#0074c1', 13);
+	addIcon('js',     'file-icon-c', '#e5a228', 13);
+	addIcon('ts',     'file-icon-c', '#0074c1', 13);
 	addIcon('coffee', 'ion-coffee', '#425d99');
 	addIcon('json',   'ion-ios-gear', '#e5a228');
 	addIcon('ls',     'ion-beaker', '#369bd7');
@@ -62,7 +62,7 @@ define(function(require, exports, module) {
 	// Java
 	addIcon('java',   'ion-coffee', '#5382A1');
 	addAlias('class', 'java');
-	addIcon('scala',  'ion-navicon-round icon-rotated', '#72d0eb');
+	addIcon('scala',  'ion-navicon-round file-icon-rotated', '#72d0eb');
 	addIcon('groovy', 'ion-ios-star', '#4298b8');
 	
 	// Lua
@@ -76,12 +76,12 @@ define(function(require, exports, module) {
 	addIcon('vbs',    'ion-ios-infinite', '#3d047e');
 	
 	// C-family
-	addIcon('hx',     'icon-c', '#ea8220', 13);
-	addIcon('pl',     'icon-c', '#a4c5eb', 13);
-	addIcon('c',      'icon-c', '#a8b9cc', 13);
-	addIcon('cpp',    'icon-c', '#ffd232', 13);
-	addIcon('cs',     'icon-c', '#5bb552', 13);
-	addIcon('swift',  'icon-c', '#f16830', 13);
+	addIcon('hx',     'file-icon-c', '#ea8220', 13);
+	addIcon('pl',     'file-icon-c', '#a4c5eb', 13);
+	addIcon('c',      'file-icon-c', '#a8b9cc', 13);
+	addIcon('cpp',    'file-icon-c', '#ffd232', 13);
+	addIcon('cs',     'file-icon-c', '#5bb552', 13);
+	addIcon('swift',  'file-icon-c', '#f16830', 13);
 
 	// Ruby
 	addIcon('rb',     'ion-heart', '#9b111e');

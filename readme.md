@@ -41,7 +41,7 @@ The following files are supported at the moment:
  - HTAccess, HTPasswd, Conf
  - YAML
  - Sqf
- - Project, Jscsrc, Jshintrc, Csslintrc, Todo, Classpath, Properties
+ - Project, Jscsrc, Jshintrc, Csslintrc, Htmlhintrc, Xmlhintrc, Todo, Classpath, Properties
  - Zip, Rar, 7z, Tgz, Tar, Gz, Bzip, Msi, Dmg
 
 You can request more file formats by creating an issue. Choose the icon [here](http://ionicons.com) and add a color (in hex format) to the issue.

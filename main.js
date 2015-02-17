@@ -1,4 +1,4 @@
-define(function(require, exports, module) {
+define(function (require, exports, module) {
 	var fileInfo = {};
 
 	function addIcon(extension, icon, color, size) {
@@ -64,17 +64,17 @@ define(function(require, exports, module) {
 	addAlias('class', 'java');
 	addIcon('scala',  'ion-navicon-round file-icon-rotated', '#72d0eb');
 	addIcon('groovy', 'ion-ios-star', '#4298b8');
-	
+
 	// Lua
 	addIcon('lua',    'ion-record', '#00207d', 14);
-	
+
 	// Clojure
 	addIcon('clj',    'ion-aperture', '#63b132');
-	
+
 	// Visual Basic
 	addIcon('vb',     'ion-ios-infinite', '#486dae');
 	addIcon('vbs',    'ion-ios-infinite', '#3d047e');
-	
+
 	// C-family
 	addIcon('hx',     'file-icon-c', '#ea8220', 13);
 	addIcon('pl',     'file-icon-c', '#a4c5eb', 13);
@@ -172,26 +172,26 @@ define(function(require, exports, module) {
 	addAlias('yaml', 'yml');
 	addIcon('sqf',   'ion-wand', '#b9e11f');
 
-	var ExtensionUtils = brackets.getModule("utils/ExtensionUtils");
+	var ExtensionUtils = brackets.getModule('utils/ExtensionUtils');
 
-	var FileTreeView = brackets.getModule("project/FileTreeView");
+	var FileTreeView = brackets.getModule('project/FileTreeView');
 	var WorkingSetView = brackets.getModule('project/WorkingSetView');
-    
-    // Before Brackets 1.1.0, icons had a hack that the margin was set to -10000px, which was corrected by the padding.
-    // This was removed in Brackets 1.1.0
-    var version = /([0-9]+)\.([0-9]+)\.([0-9]+)/.exec(brackets.metadata.version);
-    if ((version[1] === "0") || (version[1] === "1" && version[2] === "0")) { // version[1] is major, version[2] is minor
-        $('body').addClass('icons-margin-correction');
-    }
 
-	ExtensionUtils.loadStyleSheet(module, "styles/style.css");
-	ExtensionUtils.loadStyleSheet(module, "styles/ionicons.min.css");
-	
-	var provider = function(entry) {
+	// Before Brackets 1.1.0, icons had a hack that the margin was set to -10000px, which was corrected by the padding.
+	// This was removed in Brackets 1.1.0
+	var version = /([0-9]+)\.([0-9]+)\.([0-9]+)/.exec(brackets.metadata.version);
+	if ((version[1] === '0') || (version[1] === '1' && version[2] === '0')) { // version[1] is major, version[2] is minor
+		$('body').addClass('icons-margin-correction');
+	}
+
+	ExtensionUtils.loadStyleSheet(module, 'styles/style.css');
+	ExtensionUtils.loadStyleSheet(module, 'styles/ionicons.min.css');
+
+	var provider = function (entry) {
 		if (!entry.isFile) {
 			return;
 		}
-		
+
 		var ext = entry.name;
 		var lastIndex = ext.lastIndexOf('.');
 		if (lastIndex >= 0) {
@@ -199,7 +199,7 @@ define(function(require, exports, module) {
 		} else {
 			ext = '';
 		}
-		
+
 		var data = fileInfo.hasOwnProperty(ext) ? fileInfo[ext] : getDefaultIcon(ext);
 
 		var $new = $('<ins>');
@@ -211,7 +211,7 @@ define(function(require, exports, module) {
 		});
 		return $new;
 	};
-	
+
 	FileTreeView.addIconProvider(provider);
 	WorkingSetView.addIconProvider(provider);
 });

@@ -153,6 +153,8 @@ define(function(require, exports, module) {
 	addAlias('jscsrc', 'project');
 	addAlias('jshintrc', 'project');
 	addAlias('csslintrc', 'project');
+	addAlias('htmlhintrc', 'project');
+	addAlias('xmlhintrc', 'project');
 	addAlias('todo', 'project');
 	addAlias('classpath', 'project');
 	addAlias('properties', 'project');

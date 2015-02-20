@@ -172,12 +172,12 @@ define(function (require, exports, module) {
 	addAlias('yaml', 'yml');
 	addIcon('sqf',   'ion-wand', '#b9e11f');
     addAlias('map', 'json');
-  
+
     // LaTeX
     addIcon('tex', 'ion-document-text', '#960000');
     addAlias('bib', 'tex');
     addAlias('sty', 'tex');
-  
+
     //Singular Types
     addIcon('applescript', 'ion-social-apple', '#afafaf');
     addIcon('textile', 'ion-quote', '#960000');

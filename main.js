@@ -186,7 +186,6 @@ define(function (require, exports, module) {
 	addIcon('xsl', 'ion-code', '#68217a');
 	addIcon('tcl', 'ion-code', '#c3b15f');
 	addIcon('rst', 'ion-ios-paper', '#6f8696');
-	addIcon('re', 'ion-ios-barcode-outline', '#960000');
 	addIcon('d', 'ion-contrast', '#960000');
 	addIcon('r', 'ion-ios-analytics', '#8495C0');
 

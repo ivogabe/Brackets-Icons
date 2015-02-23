@@ -171,6 +171,23 @@ define(function (require, exports, module) {
 	addIcon('yml',   'ion-navicon', '#008000');
 	addAlias('yaml', 'yml');
 	addIcon('sqf',   'ion-wand', '#b9e11f');
+	addAlias('map', 'json');
+
+	// LaTeX
+	addIcon('tex', 'ion-document-text', '#262686');
+	addAlias('bib', 'tex');
+	addAlias('sty', 'tex');
+
+	//Singular Types
+	addIcon('applescript', 'ion-social-apple', '#afafaf');
+	addIcon('textile', 'ion-quote', '#6f8696');
+	addIcon('matlab', 'ion-clipboard', '#014495');
+	addIcon('lisp', 'ion-ios-paperplane', '#f8c63d');
+	addIcon('xsl', 'ion-code', '#68217a');
+	addIcon('tcl', 'ion-code', '#c3b15f');
+	addIcon('rst', 'ion-ios-paper', '#6f8696');
+	addIcon('d', 'ion-contrast', '#960000');
+	addIcon('r', 'ion-ios-analytics', '#8495C0');
 
 	var ExtensionUtils = brackets.getModule('utils/ExtensionUtils');
 

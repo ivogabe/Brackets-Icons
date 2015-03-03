@@ -82,6 +82,7 @@ define(function (require, exports, module) {
 	addIcon('cpp',    'file-icon-c', '#ffd232', 13);
 	addIcon('cs',     'file-icon-c', '#5bb552', 13);
 	addIcon('swift',  'file-icon-c', '#f16830', 13);
+    addIcon('dart',   'file-icon-c', '#36bfb6', 13);
 
 	// Ruby
 	addIcon('rb',     'ion-heart', '#9b111e');

@@ -17,24 +17,19 @@ define(function (require, exports, module) {
 		iconObject.icon = a;
 		iconObject.color = b;
 		iconObject.size = c;
+
 		if (iconArray) {
 			for (var i = 0; i < iconArray.length; i++) {
 				var object = iconArray[i];
 				if (search == object["extension"]) {
 					for (var key in object) {
-						if (object["icon"]) {
-							iconObject.icon = object["icon"];
+						if (object[key]) {
+							iconObject[key] = object[key];
 						}
-						if (object["color"]) {
-							iconObject.color = object["color"];
-						} else
-						if (object["size"]) {
-							iconObject.size = object["size"];
-						}
-						return iconObject;
 					}
 				}
 			}
+			return iconObject;
 		}
 	}
 
@@ -45,6 +40,7 @@ define(function (require, exports, module) {
 			color: iconObject.color,
 			size: iconObject.size
 		}
+		console.log(fileInfo[extension]);
 	}
 
 	function addAlias(extension, other) {
@@ -171,6 +167,8 @@ define(function (require, exports, module) {
 	addIcon('ttf', 'ion-social-tumblr', '#b42950');
 	addIcon('eot', 'ion-social-tumblr', '#b36908');
 	addIcon('woff', 'ion-social-tumblr', '#7f4bb2');
+	addIcon('woff2', 'ion-social-tumblr', '#7f4bb2');
+	addIcon('otf', 'ion-social-tumblr', '#7f4bb2');
 
 	// Readme
 	addIcon('md', 'ion-social-markdown', '#b94700', 12);

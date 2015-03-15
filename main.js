@@ -234,6 +234,27 @@ define(function (require, exports, module) {
 	addIcon('d', 'ion-contrast', '#960000');
 	addIcon('r', 'ion-ios-analytics', '#8495C0');
 
+	function extensionSearch(needle, haystack) {
+		if (haystack[needle]) {
+			return true;
+		}
+	}
+
+	function createExtensions() {
+		if (iconArray) {
+			for (var i = 0; i < iconArray.length; i++) {
+				var object = iconArray[i];
+				var extension = object["extension"];
+				var search = extensionSearch(extension, fileInfo);
+				if (!search) {
+					addIcon(object["extension"], object["icon"], object["color"], object["size"]);
+				}
+			}
+		}
+	}
+
+	createExtensions();
+
 	var ExtensionUtils = brackets.getModule('utils/ExtensionUtils');
 
 	var FileTreeView = brackets.getModule('project/FileTreeView');

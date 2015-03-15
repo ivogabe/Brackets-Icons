@@ -40,7 +40,6 @@ define(function (require, exports, module) {
 			color: iconObject.color,
 			size: iconObject.size
 		}
-		console.log(fileInfo[extension]);
 	}
 
 	function addAlias(extension, other) {

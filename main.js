@@ -140,7 +140,7 @@ define(function (require, exports, module) {
 	addIcon('eot', 'ion-social-tumblr', '#b36908');
 	addIcon('woff', 'ion-social-tumblr', '#7f4bb2');
 	addIcon('woff2', 'ion-social-tumblr', '#7f4bb2');
-	addIcon('otf', 'ion-social-tumblr', '#7f4bb2');
+	addIcon('otf', 'ion-social-tumblr', '#00B0FF');
 
 	// Readme
 	addIcon('md', 'ion-social-markdown', '#b94700', 12);

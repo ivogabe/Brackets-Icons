@@ -21,6 +21,7 @@ You can use the classes in [Ionicons](http://ionicons.com), [Font Awesome](https
 You can also add an extension that's not already supported the same way.
 
 ```json
+"brackets-icons.icons": {
 	"html": {
 			"icon": "fa fa-code",
 			"color": "#E84D49",
@@ -31,4 +32,5 @@ You can also add an extension that's not already supported the same way.
 			"color": "#DA70D6",
 			"size": 13
 	}
+}
 ```

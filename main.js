@@ -216,7 +216,7 @@ define(function (require, exports, module) {
 				if (icons.hasOwnProperty(key)) {
 					var prefs = icons[key];
 					for (var option in prefs) {
-						extPrefs.hasOwnProperty(option) ? prefs[option] = extPrefs[option] : prefs[option];
+						prefs[option] = (extPrefs.hasOwnProperty(option) ? extPrefs[option] : prefs[option]);
 					}
 				} else {
 					addIcon(ext, extPrefs.icon, extPrefs.color, extPrefs.size);
@@ -272,6 +272,7 @@ define(function (require, exports, module) {
 	FileTreeView.addIconProvider(provider);
 	WorkingSetView.addIconProvider(provider);
 
+	//Reload prefs when changed
 	prefs.on("change", function (e, data) {
 		loadPrefs(prefs.get("icons"));
 		applyUserPrefs();

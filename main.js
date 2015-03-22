@@ -1,5 +1,5 @@
 define(function (require, exports, module) {
-	var icons = {};
+	var defaultIcons = {};
 	var userIcons = {};
 
 	// Load preferences
@@ -7,14 +7,12 @@ define(function (require, exports, module) {
 	var prefs = PreferencesManager.getExtensionPrefs("brackets-icons");
 	prefs.definePreference("icons", "object", {});
 
-	function loadPrefs(data) {
-		userIcons = data;
+	function loadPrefs() {
+		userIcons = prefs.get("icons");
 	}
 
-	loadPrefs(prefs.get("icons"));
-
 	function addIcon(extension, icon, color, size) {
-		icons[extension] = {
+		defaultIcons[extension] = {
 			icon: icon,
 			color: color,
 			size: size
@@ -22,7 +20,7 @@ define(function (require, exports, module) {
 	}
 
 	function addAlias(extension, other) {
-		icons[extension] = icons[other];
+		defaultIcons[extension] = defaultIcons[other];
 	}
 
 	function getDefaultIcon(extension) {
@@ -140,7 +138,7 @@ define(function (require, exports, module) {
 	addIcon('eot', 'ion-social-tumblr', '#b36908');
 	addIcon('woff', 'ion-social-tumblr', '#7f4bb2');
 	addIcon('woff2', 'ion-social-tumblr', '#7f4bb2');
-	addIcon('otf', 'ion-social-tumblr', '#00B0FF');
+	addIcon('otf', 'ion-social-tumblr', '#7f4bb2');
 
 	// Readme
 	addIcon('md', 'ion-social-markdown', '#b94700', 12);
@@ -207,26 +205,6 @@ define(function (require, exports, module) {
 	addIcon('d', 'ion-contrast', '#960000');
 	addIcon('r', 'ion-ios-analytics', '#8495C0');
 
-	//Look up preferences and apply changes
-	function applyUserPrefs() {
-		if (userIcons) {
-			for (var key in userIcons) {
-				var ext = key;
-				var extPrefs = userIcons[ext];
-				if (icons.hasOwnProperty(key)) {
-					var prefs = icons[key];
-					for (var option in prefs) {
-						prefs[option] = (extPrefs.hasOwnProperty(option) ? extPrefs[option] : prefs[option]);
-					}
-				} else {
-					addIcon(ext, extPrefs.icon, extPrefs.color, extPrefs.size);
-				}
-			}
-		}
-	}
-
-	applyUserPrefs();
-
 	var ExtensionUtils = brackets.getModule('utils/ExtensionUtils');
 
 	var FileTreeView = brackets.getModule('project/FileTreeView');
@@ -244,6 +222,8 @@ define(function (require, exports, module) {
 	ExtensionUtils.loadStyleSheet(module, "styles/font-awesome.min.css");
 	ExtensionUtils.loadStyleSheet(module, "styles/devicons.min.css");
 
+	loadPrefs();
+
 	var provider = function (entry) {
 		if (!entry.isFile) {
 			return;
@@ -257,7 +237,20 @@ define(function (require, exports, module) {
 			ext = '';
 		}
 
-		var data = icons.hasOwnProperty(ext) ? icons[ext] : getDefaultIcon(ext);
+		var icon = defaultIcons[ext];
+
+		if (userIcons.hasOwnProperty(ext)) {
+			var userPrefs = userIcons[ext];
+			if (icon) {
+				for (var option in userPrefs) {
+					icon[option] = (userPrefs.hasOwnProperty(option) ? userPrefs[option] : icon[option]);
+				}
+			} else {
+				icon = userPrefs;
+			}
+		}
+
+		var data = icon ? icon : getDefaultIcon(ext);
 
 		var $new = $('<ins>');
 		$new.addClass(data.icon);
@@ -269,12 +262,15 @@ define(function (require, exports, module) {
 		return $new;
 	};
 
-	FileTreeView.addIconProvider(provider);
 	WorkingSetView.addIconProvider(provider);
+	FileTreeView.addIconProvider(provider);
 
-	//Reload prefs when changed
 	prefs.on("change", function (e, data) {
-		loadPrefs(prefs.get("icons"));
-		applyUserPrefs();
+		loadPrefs();
+		//		var currentIcons = $('.file-tree-view-icon');
+		//		currentIcons.remove();
+		//		console.log(currentIcons);
+		//		WorkingSetView.addIconProvider(provider);
+		//		FileTreeView.addIconProvider(provider);
 	});
 });

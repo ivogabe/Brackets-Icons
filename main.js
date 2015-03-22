@@ -1,55 +1,28 @@
 define(function (require, exports, module) {
-	var fileInfo = {};
+	var icons = {};
+	var userIcons = {};
 
 	// Load preferences
-	var PreferencesManager = brackets.getModule("preferences/PreferencesManager"),
-		prefs = PreferencesManager.getExtensionPrefs("file-icons");
-	prefs.definePreference("icons", "array", []);
+	var PreferencesManager = brackets.getModule("preferences/PreferencesManager");
+	var prefs = PreferencesManager.getExtensionPrefs("brackets-icons");
+	prefs.definePreference("icons", "object", {});
 
-	// Declare variables
-	var iconArray;
-	var iconObject = {};
-	var iconArray = prefs.get("icons");
-
-	//Function to check the Preferences file for the extension
-	//And update the icon if found
-	function checkPrefs(search, a, b, c) {
-		iconObject.icon = a;
-		iconObject.color = b;
-		iconObject.size = c;
-
-		if (iconArray) {
-			for (var i = 0; i < iconArray.length; i++) {
-				var object = iconArray[i];
-				if (search == object["extension"]) {
-					for (var key in object) {
-						if (object[key]) {
-							iconObject[key] = object[key];
-						}
-					}
-				}
-			}
-			return iconObject;
-		}
+	function loadPrefs(data) {
+		userIcons = data;
 	}
 
+	loadPrefs(prefs.get("icons"));
+
 	function addIcon(extension, icon, color, size) {
-		checkPrefs(extension, icon, color, size);
-		fileInfo[extension] = {
-			icon: iconObject.icon,
-			color: iconObject.color,
-			size: iconObject.size
+		icons[extension] = {
+			icon: icon,
+			color: color,
+			size: size
 		}
 	}
 
 	function addAlias(extension, other) {
-		fileInfo[extension] = fileInfo[other];
-		checkPrefs(extension, fileInfo[extension].icon, fileInfo[extension].color, fileInfo[extension].size);
-		fileInfo[extension] = {
-			icon: iconObject.icon,
-			color: iconObject.color,
-			size: iconObject.size
-		}
+		icons[extension] = icons[other];
 	}
 
 	function getDefaultIcon(extension) {
@@ -234,26 +207,25 @@ define(function (require, exports, module) {
 	addIcon('d', 'ion-contrast', '#960000');
 	addIcon('r', 'ion-ios-analytics', '#8495C0');
 
-	function extensionSearch(needle, haystack) {
-		if (haystack[needle]) {
-			return true;
-		}
-	}
-
-	function createExtensions() {
-		if (iconArray) {
-			for (var i = 0; i < iconArray.length; i++) {
-				var object = iconArray[i];
-				var extension = object["extension"];
-				var search = extensionSearch(extension, fileInfo);
-				if (!search) {
-					addIcon(object["extension"], object["icon"], object["color"], object["size"]);
+	//Look up preferences and apply changes
+	function applyUserPrefs() {
+		if (userIcons) {
+			for (var key in userIcons) {
+				var ext = key;
+				var extPrefs = userIcons[ext];
+				if (icons.hasOwnProperty(key)) {
+					var prefs = icons[key];
+					for (var option in prefs) {
+						extPrefs.hasOwnProperty(option) ? prefs[option] = extPrefs[option] : prefs[option];
+					}
+				} else {
+					addIcon(ext, extPrefs.icon, extPrefs.color, extPrefs.size);
 				}
 			}
 		}
 	}
 
-	createExtensions();
+	applyUserPrefs();
 
 	var ExtensionUtils = brackets.getModule('utils/ExtensionUtils');
 
@@ -285,7 +257,7 @@ define(function (require, exports, module) {
 			ext = '';
 		}
 
-		var data = fileInfo.hasOwnProperty(ext) ? fileInfo[ext] : getDefaultIcon(ext);
+		var data = icons.hasOwnProperty(ext) ? icons[ext] : getDefaultIcon(ext);
 
 		var $new = $('<ins>');
 		$new.addClass(data.icon);
@@ -299,4 +271,9 @@ define(function (require, exports, module) {
 
 	FileTreeView.addIconProvider(provider);
 	WorkingSetView.addIconProvider(provider);
+
+	prefs.on("change", function (e, data) {
+		loadPrefs(prefs.get("icons"));
+		applyUserPrefs();
+	});
 });

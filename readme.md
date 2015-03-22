@@ -5,7 +5,7 @@ This extension adds file icons (from the [Ionicons](https://github.com/driftyco/
 
 Supported files
 ---------------
-The following files are supported at the moment:
+The following files are supported out of the box at the moment:
 
  - JavaScript
  - JSON
@@ -51,6 +51,10 @@ You can request more file formats by creating an issue. Choose the icon [here](h
 How to install
 --------------
 Open Brackets, and click the extensions button on the right. Search for 'Brackets Icons' and click install.
+
+Customizability
+--------------
+Click [here](customizability.md).
 
 License
 -------

@@ -54,7 +54,7 @@ Open Brackets, and click the extensions button on the right. Search for 'Bracket
 
 Customizability
 --------------
-Click [here](customizability.md).
+For information on how to customize icons, click here [here](customizability.md)!
 
 License
 -------

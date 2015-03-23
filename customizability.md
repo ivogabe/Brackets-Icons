@@ -4,7 +4,7 @@ Now you can customize your icons and even add unsupported extensions! In the Bra
 "brackets-icons.icons": {}
 ```
 
-Now you're ready to add some customizations. Not all attributes are required. For instance if you only want to change the color or size of an existing icon you can do so. Here's an example preference:
+Now you're ready to add some customizations. Here's an example icon preference:
 
 ```json
 "brackets-icons.icons": {
@@ -21,7 +21,6 @@ You can use the classes in [Ionicons](http://ionicons.com), [Font Awesome](https
 You can also add an extension that's not already supported the same way.
 
 ```json
-"brackets-icons.icons": {
 	"html": {
 			"icon": "fa fa-code",
 			"color": "#E84D49",
@@ -32,5 +31,4 @@ You can also add an extension that's not already supported the same way.
 			"color": "#DA70D6",
 			"size": 13
 	}
-}
 ```

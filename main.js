@@ -16,7 +16,7 @@ define(function (require, exports, module) {
 			icon: icon,
 			color: color,
 			size: size
-		}
+		};
 	}
 
 	function addAlias(extension, other) {

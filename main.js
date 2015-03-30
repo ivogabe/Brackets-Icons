@@ -50,6 +50,7 @@ define(function(require, exports, module) {
 
 	// JavaScript
 	addIcon('js',     '\uf2db', '#e5a228', 12);
+	addIcon('es6',     '\uf2db', '#2b8674', 13);
 	addIcon('ts',     '\uf2db', '#0074c1', 12);
 	addIcon('coffee', '\uf272', '#425d99');
 	addIcon('json',   '\uf195', '#e5a228');

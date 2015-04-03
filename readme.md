@@ -1,17 +1,18 @@
 Brackets Icons
 ==============
-This extension adds file icons (from the [Ionicons](https://github.com/driftyco/ionicons) project) to the brackets file tree. 
+This extension adds file icons (from the [Ionicons](http://ionicons.com) project) to the brackets file tree. 
 ![Brackets Icons](https://raw.githubusercontent.com/ivogabe/Brackets-Icons/master/screenshots/screenshot-1.png)
 
 Supported files
 ---------------
-The following files are supported at the moment:
+The following files are supported out of the box at the moment:
 
  - JavaScript
  - JSON
  - TypeScript
  - CoffeeScript
  - LiveScript
+ - Haml
  - HTML
  - SVG
  - XML
@@ -35,7 +36,7 @@ The following files are supported at the moment:
  - GIF
  - MP4, WebM, OGG
  - MP3, WAV
- - EOT, TTF, WOFF
+ - EOT, TTF, WOFF, WOFF2, OTF
  - GitIgnore, GitModules
  - NPMIgnore, SlugIgnore
  - HTAccess, HTPasswd, Conf
@@ -46,11 +47,17 @@ The following files are supported at the moment:
  - Tex, Bib, Sty
  - AppleScript, Textile, Matlab, Lisp, Xsl, Tcl, Rst, D, R
 
-You can request more file formats by creating an issue. Choose the icon [here](http://ionicons.com) and add a color (in hex format) to the issue.
+You can request more file formats by creating an issue. Choose the icon ([Iconicons](http://ionicons.com), [Font Awesome](https://fortawesome.github.io/Font-Awesome/), or [Devicons](https://vorillaz.github.io/devicons/#/main)) and add a color (in hex format) to the issue. 
+
+Or see the Customizability documentation below for how to use the Brackets preferences file to add icons for unsupported extensions and change the icons for already supported extensions.
 
 How to install
 --------------
 Open Brackets, and click the extensions button on the right. Search for 'Brackets Icons' and click install.
+
+Customizability
+--------------
+For information on how to customize icons, click [here](customizability.md)!
 
 License
 -------

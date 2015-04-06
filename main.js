@@ -63,6 +63,7 @@ define(function (require, exports, module) {
 
 	// JavaScript
 	addIcon('js', 'file-icon-c', '#e5a228', 13);
+	addIcon('es6', 'file-icon-c', '#4321A9', 13);
 	addIcon('ts', 'file-icon-c', '#0074c1', 13);
 	addIcon('coffee', 'ion-coffee', '#425d99');
 	addIcon('json', 'ion-ios-gear', '#e5a228');

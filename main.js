@@ -71,6 +71,7 @@ define(function (require, exports, module) {
 
 	// Server side
 	addIcon('php', 'ion-code-working', '#6976c3');
+	addIcon('ctp', 'ion-code-working', '#417282');
 	addIcon('sql', 'ion-soup-can-outline', '#c67f07');
 
 	// Java

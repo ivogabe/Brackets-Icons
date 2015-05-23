@@ -53,6 +53,7 @@ define(function (require, exports, module) {
 	addIcon('html', 'ion-code', '#E34C26');
 	addIcon('haml', 'ion-code', '#0270b9');
 	addAlias('htm', 'html');
+	addIcon('hbs', 'ion-code', '#f38709');
 
 	// Stylesheets
 	addIcon('css', 'ion-pound', '#0270b9', 12);

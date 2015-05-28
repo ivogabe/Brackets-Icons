@@ -113,6 +113,10 @@ define(function (require, exports, module) {
 	// Shell and friends
 	addIcon('sh', 'ion-document-text', '#008d00');
 	addIcon('bat', 'ion-social-windows', '#60c910');
+	
+	// Applications
+	addIcon('exe', 'ion-social-windows', '#57a084');
+	addIcon('dll', 'ion-social-windows', '#709ead');
 
 	// Templating
 	addIcon('jade', 'ion-egg', '#00a57a');

@@ -185,6 +185,9 @@ define(function (require, exports, module) {
 	addAlias('gruntrc', 'project');
 	addAlias('jsrc', 'project');
 	addAlias('editorconfig', 'project');
+	addIcon('csproj', 'ion-ios-paper-outline', '#5bb552', 18);
+	addIcon('vbproj', 'ion-ios-paper-outline', '#486dae', 18);
+	addIcon('sln', 'ion-ios-box-outline', '#87c5de', 18);
 
 	// Other text files
 	addIcon('txt', 'ion-document-text', '#4192c1');

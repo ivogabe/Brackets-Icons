@@ -32,3 +32,5 @@ You can also add an extension that's not already supported the same way.
 			"size": 13
 	}
 ```
+
+Ionicons (MIT license), Font Awesome (GPL license) and Devicons (MIT license) are included in Brackets-Icons.

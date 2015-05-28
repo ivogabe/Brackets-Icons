@@ -50,7 +50,7 @@ The following files are supported out of the box at the moment:
  - Tex, Bib, Sty
  - AppleScript, Textile, Matlab, Lisp, Xsl, Tcl, Rst, D, R
 
-You can request more file formats by creating an issue. Choose the icon ([Iconicons](http://ionicons.com), [Font Awesome](https://fortawesome.github.io/Font-Awesome/), or [Devicons](https://vorillaz.github.io/devicons/#/main)) and add a color (in hex format) to the issue. 
+You can request more file formats by creating an issue. Choose the icon from [Iconicons](http://ionicons.com) and add a color (in hex format) to the issue. 
 
 Or see the Customizability documentation below for how to use the Brackets preferences file to add icons for unsupported extensions and change the icons for already supported extensions.
 

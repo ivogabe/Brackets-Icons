@@ -29,6 +29,7 @@ The following files are supported out of the box at the moment:
  - CSS, SASS, Less, Stylus
  - Shell script, Batch
  - Jade
+ - Handlebars
  - TXT
  - Log
  - Markdown
@@ -43,6 +44,8 @@ The following files are supported out of the box at the moment:
  - YAML
  - Sqf
  - Project, Jscsrc, Jshintrc, Csslintrc, Htmlhintrc, Xmlhintrc, Todo, Classpath, Properties
+ - VBProj, CSProj, Sln
+ - Exe, Dll
  - Zip, Rar, 7z, Tgz, Tar, Gz, Bzip, Msi, Dmg
  - Tex, Bib, Sty
  - AppleScript, Textile, Matlab, Lisp, Xsl, Tcl, Rst, D, R

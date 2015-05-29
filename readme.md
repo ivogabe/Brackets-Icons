@@ -12,6 +12,7 @@ The following files are supported out of the box at the moment:
  - TypeScript
  - CoffeeScript
  - LiveScript
+ - Dart
  - Haml
  - HTML
  - SVG

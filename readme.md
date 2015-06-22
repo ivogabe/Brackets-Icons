@@ -20,7 +20,7 @@ The following files are supported out of the box at the moment:
  - C, C++, C#
  - Swift
  - PHP, SQL
- - Java, Scala, Groovy
+ - Java, Scala, Groovy, Manifests
  - Ruby, Embedded Ruby, RDoc, Cucumber Feature files
  - Perl
  - Lua

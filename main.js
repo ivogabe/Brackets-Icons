@@ -80,6 +80,7 @@ define(function (require, exports, module) {
 	addAlias('class', 'java');
 	addIcon('scala', 'ion-navicon-round file-icon-rotated', '#72d0eb');
 	addIcon('groovy', 'ion-ios-star', '#4298b8');
+	addIcon('mf', 'ion-ios-gear', '#2f5796');
 
 	// Lua
 	addIcon('lua', 'ion-record', '#00207d', 14);

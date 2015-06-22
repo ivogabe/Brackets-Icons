@@ -28,6 +28,8 @@ The following files are supported out of the box at the moment:
  - VB, VBScript
  - Clojure
  - CSS, SASS, Less, Stylus
+ - Python
+ - QtQuick
  - Shell script, Batch
  - Jade
  - Handlebars

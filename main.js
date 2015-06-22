@@ -110,6 +110,9 @@ define(function (require, exports, module) {
 	addIcon('py', 'ion-social-python', '#f8c63d');
 	addAlias('pyw', 'py');
 
+	// Qt Quick
+	addIcon('qml', 'ion-code', '#42ed0e');
+
 	// Shell and friends
 	addIcon('sh', 'ion-document-text', '#008d00');
 	addIcon('bat', 'ion-social-windows', '#60c910');
@@ -128,7 +131,6 @@ define(function (require, exports, module) {
 	addIcon('tiff', 'ion-image', '#ff4000');
 	addIcon('ico', 'ion-image', '#b6d2d1');
 	addIcon('svg', 'ion-image', '#c0c5eb');
-
 	addIcon('gif', 'ion-images', '#aaecc0');
 
 	// Videos
@@ -184,6 +186,7 @@ define(function (require, exports, module) {
 	addAlias('bowerrc', 'project');
 	addAlias('gruntrc', 'project');
 	addAlias('jsrc', 'project');
+	addAlias('pro', 'project');
 	addAlias('editorconfig', 'project');
 	addIcon('csproj', 'ion-ios-paper-outline', '#5bb552', 18);
 	addIcon('vbproj', 'ion-ios-paper-outline', '#486dae', 18);

@@ -115,8 +115,8 @@ define(function (require, exports, module) {
 	addIcon('qml', 'ion-code', '#42ed0e');
 
 	// Shell and friends
-	addIcon('sh', 'ion-document-text', '#008d00');
-	addIcon('bat', 'ion-social-windows', '#60c910');
+	addIcon('sh', 'ion-android-list', '#008d00');
+	addIcon('bat', 'ion-android-list', '#60c910');
 	
 	// Applications
 	addIcon('exe', 'ion-social-windows', '#57a084');

@@ -6,7 +6,7 @@ import { UserDictionary, UserSettings } from './user-dictionary';
 export class IconDictionary implements Dictionary<Icon> {
 	user: UserDictionary;
 	color = IconSet.ColorLight;
-	iconSet = IconSet.IconDev;
+	iconSet = IconSet.IconIon;
 	
 	constructor(settings: UserSettings = {}) {
 		this.user = new UserDictionary(settings);

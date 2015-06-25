@@ -61,6 +61,11 @@ export function setExtensions(set: (extension: string | string[], icon: PresetIc
 		[IconSet.IconIon]: ['file-icon-c', 13],
 		[IconSet.IconDev]: 'devicons devicons-javascript' // TODO: Better icon
 	});
+	set('d.ts', {
+		[IconSet.ColorLight]: '#0b8f9e',
+		[IconSet.IconIon]: ['file-icon-c', 13],
+		[IconSet.IconDev]: 'devicons devicons-javascript' // TODO: Better icon
+	});
 	set('coffee', {
 		[IconSet.ColorLight]: '#425d99',
 		[IconSet.IconIon]: 'ion-coffee',

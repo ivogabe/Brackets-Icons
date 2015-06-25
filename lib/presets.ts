@@ -110,6 +110,104 @@ export function setExtensions(set: (extension: string | string[], icon: PresetIc
 		[IconSet.IconIon]: 'ion-ios-star',
 		[IconSet.IconDev]: 'devicons devicons-groovy'
 	});
+	set('groovy', {
+		[IconSet.ColorLight]: '#2f5796',
+		[IconSet.IconIon]: 'ion-ios-gear'
+	});
+	
+	// Lua
+	set('lua', {
+		[IconSet.ColorLight]: '#00207d',
+		[IconSet.IconIon]: ['ion-record', 14]
+	});
+	
+	// Clojure
+	set('clj', {
+		[IconSet.ColorLight]: '#63b132',
+		[IconSet.IconIon]: 'ion-aperture'
+	});
+
+	// Visual Basic
+	set('vb', {
+		[IconSet.ColorLight]: '#486dae',
+		[IconSet.IconIon]: 'ion-ios-infinite'
+	});
+	set('vbs', {
+		[IconSet.ColorLight]: '#3d047e',
+		[IconSet.IconIon]: 'ion-ios-infinite'
+	});
+
+	// C-family
+	set('hx', {
+		[IconSet.ColorLight]: '#ea8220',
+		[IconSet.IconIon]: ['file-icon-c', 13]
+	});
+	set('pl', {
+		[IconSet.ColorLight]: '#a4c5eb',
+		[IconSet.IconIon]: ['file-icon-c', 13]
+	});
+	set('c', {
+		[IconSet.ColorLight]: '#a8b9cc',
+		[IconSet.IconIon]: ['file-icon-c', 13]
+	});
+	set('cpp', {
+		[IconSet.ColorLight]: '#ffd232',
+		[IconSet.IconIon]: ['file-icon-c', 13]
+	});
+	set('cs', {
+		[IconSet.ColorLight]: '#5bb552',
+		[IconSet.IconIon]: ['file-icon-c', 13]
+	});
+	set('swift', {
+		[IconSet.ColorLight]: '#f16830',
+		[IconSet.IconIon]: ['file-icon-c', 13]
+	});
+	set('dart', {
+		[IconSet.ColorLight]: '#36bfb6',
+		[IconSet.IconIon]: ['file-icon-c', 13]
+	});
+
+	// Ruby
+	set(['rb', 'erb', 'rdoc'], {
+		[IconSet.ColorLight]: '#9b111e',
+		[IconSet.IconIon]: 'ion-heart'
+	});
+	set('feature', {
+		[IconSet.ColorLight]: '#4e8b39',
+		[IconSet.IconIon]: 'ion-chatbox-working'
+	});
+
+	// Python
+	set(['py', 'pyw'], {
+		[IconSet.ColorLight]: '#f8c63d',
+		[IconSet.IconIon]: 'ion-social-python'
+	});
+	
+	// Qt Quick
+	set('qml', {
+		[IconSet.ColorLight]: '#42ed0e',
+		[IconSet.IconIon]: 'ion-code'
+	});
+
+	// Shell and friends
+	set('sh', {
+		[IconSet.ColorLight]: '#008d00',
+		[IconSet.IconIon]: 'ion-android-list'
+	});
+	set('bat', {
+		[IconSet.ColorLight]: '#60c910',
+		[IconSet.IconIon]: 'ion-android-list'
+	});
+	
+	// Applications
+	set('exe', {
+		[IconSet.ColorLight]: '#57a084',
+		[IconSet.IconIon]: 'ion-social-windows'
+	});
+	set('dll', {
+		[IconSet.ColorLight]: '#709ead',
+		[IconSet.IconIon]: 'ion-social-windows'
+	});
 	
 	// TODO: More icons...
 }

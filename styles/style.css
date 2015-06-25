@@ -1,9 +1,19 @@
+.file-icon-box {
+	width: 25px;
+	display: inline-block;
+	text-decoration: none;
+}
 .file-icon {
 	text-align: center;
 	font-size: 16px;
 	width: 20px;
 	text-decoration: none;
-	display: inline-block;
+	display: block;
+}
+.file-icon-secondary {
+	margin-left: 13px;
+	margin-top: -10px;
+	width: 10px;
 }
 .jstree ins.file-tree-view-icon {
 	margin-left: -20px;

@@ -22,6 +22,7 @@ const ExtensionUtils = brackets.getModule('utils/ExtensionUtils');
 
 const FileTreeView = brackets.getModule('project/FileTreeView');
 const WorkingSetView = brackets.getModule('project/WorkingSetView');
+const ProjectManager = brackets.getModule('project/ProjectManager');
 
 // Before Brackets 1.1.0, icons had a hack that the margin was set to -10000px, which was corrected by the padding.
 // This was removed in Brackets 1.1.0
@@ -75,4 +76,5 @@ FileTreeView.addIconProvider(provider);
 
 prefs.on("change", function (e, data) {
 	loadPreferences();
+	ProjectManager.rerenderTree();
 });

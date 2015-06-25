@@ -47,7 +47,7 @@ const provider = (entry) => {
 	const mainIcon = data[data.length - 1];
 	const secondIcon = data[data.length - 2];
 
-	const $icon = $('<div>');
+	const $icon = $('<ins>');
 	$icon.addClass('file-icon-box')
 
 	const $main = $('<div>');

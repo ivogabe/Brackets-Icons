@@ -63,6 +63,16 @@ Customizability
 --------------
 For information on how to customize icons, click [here](customizability.md)!
 
+How to build
+------------
+If you don't grab the extension from the extension registry (see 'How to install'), you have to build it manually.
+You need to install [node](https://nodejs.org/) first. After that installation you can install the dependencies in a command line / terminal window.
+```
+npm install gulp -g
+npm install
+```
+When you've installed the dependencies, you can build the project by running `gulp` in the terminal.
+
 License
 -------
 Brackets Icons is licensed under the [MIT license](http://opensource.org/licenses/MIT). Ionicons is also licensed under the MIT license.

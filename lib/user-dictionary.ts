@@ -18,7 +18,10 @@ export class UserDictionary implements Dictionary<Icon> {
 	findExtensionPrefix(extension: string) {
 		return this.settings[extension];
 	}
-	findFileName(extension: string) {
+	findFullFileName(extension: string) {
+		return this.settings[extension];
+	}
+	findFileName(fileName: string, extension: string) {
 		return this.settings[extension];
 	}
 	getEmptyItem(fileName: string) {

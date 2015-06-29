@@ -1,6 +1,13 @@
 import { PresetIcon, IconSet } from './icon';
 
-export function setExtensions(set: (extension: string | string[], icon: PresetIcon) => void) {
+interface RegisterIcon {
+	(key: string | string[], icon: PresetIcon): void
+}
+interface RegisterFileNameIcon {
+	(fileName: string | string[], extensions: string[], icon: PresetIcon): void
+}
+
+export function setExtensions(set: RegisterIcon) {
 	// XML
 	set('xml', {
 		[IconSet.ColorLight]: '#ff6600',
@@ -53,6 +60,11 @@ export function setExtensions(set: (extension: string | string[], icon: PresetIc
 	});
 	set('es6', {
 		[IconSet.ColorLight]: '#4321a9',
+		[IconSet.IconIon]: ['file-icon-c', 13],
+		[IconSet.IconDev]: 'devicons devicons-javascript'
+	});
+	set('babel.js', {
+		[IconSet.ColorLight]: '#f5da55',
 		[IconSet.IconIon]: ['file-icon-c', 13],
 		[IconSet.IconDev]: 'devicons devicons-javascript'
 	});
@@ -117,7 +129,8 @@ export function setExtensions(set: (extension: string | string[], icon: PresetIc
 	});
 	set('mf', {
 		[IconSet.ColorLight]: '#2f5796',
-		[IconSet.IconIon]: 'ion-ios-gear'
+		[IconSet.IconIon]: 'ion-ios-gear',
+		[IconSet.IconDev]: 'devicons devicons-aptana' // Looks like a gear
 	});
 	
 	// Lua
@@ -129,17 +142,20 @@ export function setExtensions(set: (extension: string | string[], icon: PresetIc
 	// Clojure
 	set('clj', {
 		[IconSet.ColorLight]: '#63b132',
-		[IconSet.IconIon]: 'ion-aperture'
+		[IconSet.IconIon]: 'ion-aperture',
+		[IconSet.IconDev]: 'devicons devicons-clojure'
 	});
 
 	// Visual Basic
 	set('vb', {
 		[IconSet.ColorLight]: '#486dae',
-		[IconSet.IconIon]: 'ion-ios-infinite'
+		[IconSet.IconIon]: 'ion-ios-infinite',
+		[IconSet.IconDev]: 'devicons devicons-visualstudio'
 	});
 	set('vbs', {
 		[IconSet.ColorLight]: '#3d047e',
-		[IconSet.IconIon]: 'ion-ios-infinite'
+		[IconSet.IconIon]: 'ion-ios-infinite',
+		[IconSet.IconDev]: 'devicons devicons-visualstudio'
 	});
 
 	// C-family
@@ -161,57 +177,68 @@ export function setExtensions(set: (extension: string | string[], icon: PresetIc
 	});
 	set('cs', {
 		[IconSet.ColorLight]: '#5bb552',
-		[IconSet.IconIon]: ['file-icon-c', 13]
+		[IconSet.IconIon]: ['file-icon-c', 13],
+		[IconSet.IconDev]: 'devicons devicons-visualstudio'
 	});
 	set('swift', {
 		[IconSet.ColorLight]: '#f16830',
-		[IconSet.IconIon]: ['file-icon-c', 13]
+		[IconSet.IconIon]: ['file-icon-c', 13],
+		[IconSet.IconDev]: 'devicons devicons-swift'
 	});
 	set('dart', {
 		[IconSet.ColorLight]: '#36bfb6',
-		[IconSet.IconIon]: ['file-icon-c', 13]
+		[IconSet.IconIon]: ['file-icon-c', 13],
+		[IconSet.IconDev]: 'devicons devicons-dart'
 	});
 
 	// Ruby
 	set(['rb', 'erb', 'rdoc'], {
 		[IconSet.ColorLight]: '#9b111e',
-		[IconSet.IconIon]: 'ion-heart'
+		[IconSet.IconIon]: 'ion-heart',
+		[IconSet.IconDev]: 'devicons devicons-ruby'
 	});
 	set('feature', {
 		[IconSet.ColorLight]: '#4e8b39',
-		[IconSet.IconIon]: 'ion-chatbox-working'
+		[IconSet.IconIon]: 'ion-chatbox-working',
+		[IconSet.IconDev]: 'devicons devicons-ruby'
 	});
 
 	// Python
 	set(['py', 'pyw'], {
 		[IconSet.ColorLight]: '#f8c63d',
-		[IconSet.IconIon]: 'ion-social-python'
+		[IconSet.IconIon]: 'ion-social-python',
+		[IconSet.IconDev]: 'devicons devicons-python'
 	});
 	
 	// Qt Quick
 	set('qml', {
 		[IconSet.ColorLight]: '#42ed0e',
-		[IconSet.IconIon]: 'ion-code'
+		[IconSet.IconIon]: 'ion-code',
+		[IconSet.IconDev]: 'devicons devicons-code'
 	});
 
 	// Shell and friends
 	set('sh', {
 		[IconSet.ColorLight]: '#008d00',
-		[IconSet.IconIon]: 'ion-android-list'
+		[IconSet.IconIon]: 'ion-android-list',
+		[IconSet.IconDev]: 'devicons devicons-terminal'
 	});
 	set('bat', {
 		[IconSet.ColorLight]: '#60c910',
-		[IconSet.IconIon]: 'ion-android-list'
+		[IconSet.IconIon]: 'ion-android-list',
+		[IconSet.IconDev]: 'devicons devicons-terminal'
 	});
 	
 	// Applications
 	set('exe', {
 		[IconSet.ColorLight]: '#57a084',
-		[IconSet.IconIon]: 'ion-social-windows'
+		[IconSet.IconIon]: 'ion-social-windows',
+		[IconSet.IconDev]: 'devicons devicons-windows'
 	});
 	set('dll', {
 		[IconSet.ColorLight]: '#709ead',
-		[IconSet.IconIon]: 'ion-social-windows'
+		[IconSet.IconIon]: 'ion-social-windows',
+		[IconSet.IconDev]: 'devicons devicons-windows'
 	});
 	
 	// Templating
@@ -223,39 +250,47 @@ export function setExtensions(set: (extension: string | string[], icon: PresetIc
 	// Images
 	set('png', {
 		[IconSet.ColorLight]: '#dbb1a9',
-		[IconSet.IconIon]: 'ion-image'
+		[IconSet.IconIon]: 'ion-image',
+		[IconSet.IconDev]: 'devicons devicons-html5_multimedia'
 	});
 	set(['jpeg', 'jpg'], {
 		[IconSet.ColorLight]: '#dedfa3',
-		[IconSet.IconIon]: 'ion-image'
+		[IconSet.IconIon]: 'ion-image',
+		[IconSet.IconDev]: 'devicons devicons-html5_multimedia'
 	});
 	set('tiff', {
 		[IconSet.ColorLight]: '#ff4000',
-		[IconSet.IconIon]: 'ion-image'
+		[IconSet.IconIon]: 'ion-image',
+		[IconSet.IconDev]: 'devicons devicons-html5_multimedia'
 	});
 	set('ico', {
 		[IconSet.ColorLight]: '#b6d2d1',
-		[IconSet.IconIon]: 'ion-image'
+		[IconSet.IconIon]: 'ion-image',
+		[IconSet.IconDev]: 'devicons devicons-html5_multimedia'
 	});
 	set('svg', {
 		[IconSet.ColorLight]: '#c0c5eb',
-		[IconSet.IconIon]: 'ion-image'
+		[IconSet.IconIon]: 'ion-image',
+		[IconSet.IconDev]: 'devicons devicons-html5_multimedia'
 	});
 	set('gif', {
 		[IconSet.ColorLight]: '#aaecc0',
-		[IconSet.IconIon]: 'ion-images'
+		[IconSet.IconIon]: 'ion-images',
+		[IconSet.IconDev]: 'devicons devicons-html5_multimedia'
 	});
 
 	// Videos
 	set(['mp4', 'webm', 'ogg'], {
 		[IconSet.ColorLight]: '#008d00',
-		[IconSet.IconIon]: 'ion-ios-videocam'
+		[IconSet.IconIon]: 'ion-ios-videocam',
+		[IconSet.IconDev]: 'devicons devicons-html5_multimedia'
 	});
 
 	// Audio
 	set(['mp3', 'wav'], {
 		[IconSet.ColorLight]: '#921100',
-		[IconSet.IconIon]: 'ion-volume-medium'
+		[IconSet.IconIon]: 'ion-volume-medium',
+		[IconSet.IconDev]: 'devicons devicons-html5_multimedia'
 	});
 
 	// Fonts
@@ -278,18 +313,21 @@ export function setExtensions(set: (extension: string | string[], icon: PresetIc
 
 	// Readme
 	set(['md', 'markdown'], {
-		[IconSet.ColorLight]: '#709ead',
-		[IconSet.IconIon]: ['ion-social-markdown', 12]
+		[IconSet.ColorLight]: '#b94700',
+		[IconSet.IconIon]: ['ion-social-markdown', 12],
+		[IconSet.IconDev]: 'devicons devicons-markdown'
 	});
 
 	// Git
 	set('gitignore', {
 		[IconSet.ColorLight]: '#cd5439',
-		[IconSet.IconIon]: ['ion-minus-circled', 14]
+		[IconSet.IconIon]: ['ion-minus-circled', 14],
+		[IconSet.IconDev]: 'devicons devicons-git_commit'
 	});
 	set('gitmodules', {
 		[IconSet.ColorLight]: '#f64d27',
-		[IconSet.IconIon]: ['ion-fork-repo', 17]
+		[IconSet.IconIon]: ['ion-fork-repo', 17],
+		[IconSet.IconDev]: 'devicons devicons-git_branch'
 	});
 
 	// Webservers
@@ -303,7 +341,8 @@ export function setExtensions(set: (extension: string | string[], icon: PresetIc
 	});
 	set('conf', {
 		[IconSet.ColorLight]: '#009900',
-		[IconSet.IconIon]: 'ion-ios-gear'
+		[IconSet.IconIon]: 'ion-ios-gear',
+		[IconSet.IconDev]: 'devicons devicons-aptana' // Looks like a gear
 	});
 
 	// Archive
@@ -362,19 +401,23 @@ export function setExtensions(set: (extension: string | string[], icon: PresetIc
 		'editorconfig'
 	], {
 		[IconSet.ColorLight]: '#777777',
-		[IconSet.IconIon]: 'ion-ios-gear'
+		[IconSet.IconIon]: 'ion-ios-gear',
+		[IconSet.IconDev]: 'devicons devicons-aptana' // Looks like a gear
 	});
 	set('csproj', {
 		[IconSet.ColorLight]: '#5bb552',
-		[IconSet.IconIon]: ['ion-ios-paper-outline', 18]
+		[IconSet.IconIon]: ['ion-ios-paper-outline', 18],
+		[IconSet.IconDev]: 'devicons devicons-aptana' // Looks like a gear
 	});
 	set('vbproj', {
 		[IconSet.ColorLight]: '#486dae',
-		[IconSet.IconIon]: ['ion-ios-paper-outline', 18]
+		[IconSet.IconIon]: ['ion-ios-paper-outline', 18],
+		[IconSet.IconDev]: 'devicons devicons-aptana' // Looks like a gear
 	});
 	set('sln', {
 		[IconSet.ColorLight]: '#87c5de',
-		[IconSet.IconIon]: ['ion-ios-paper-outline', 18]
+		[IconSet.IconIon]: ['ion-ios-paper-outline', 18],
+		[IconSet.IconDev]: 'devicons devicons-aptana' // Looks like a gear
 	});
 
 	// Other text files
@@ -388,7 +431,8 @@ export function setExtensions(set: (extension: string | string[], icon: PresetIc
 	});
 	set('npmignore', {
 		[IconSet.ColorLight]: '#cb3837',
-		[IconSet.IconIon]: ['ion-minus-circled', 14]
+		[IconSet.IconIon]: ['ion-minus-circled', 14],
+		[IconSet.IconDev]: 'devicons devicons-npm'
 	});
 	set('slugignore', {
 		[IconSet.ColorLight]: '#0da064',
@@ -412,7 +456,8 @@ export function setExtensions(set: (extension: string | string[], icon: PresetIc
 	//Singular Types
 	set('applescript', {
 		[IconSet.ColorLight]: '#afafaf',
-		[IconSet.IconIon]: 'ion-social-apple'
+		[IconSet.IconIon]: 'ion-social-apple',
+		[IconSet.IconDev]: 'devicons devicons-apple'
 	});
 	set('textile', {
 		[IconSet.ColorLight]: '#6f8696',
@@ -428,15 +473,18 @@ export function setExtensions(set: (extension: string | string[], icon: PresetIc
 	});
 	set('xsl', {
 		[IconSet.ColorLight]: '#68217a',
-		[IconSet.IconIon]: 'ion-code'
+		[IconSet.IconIon]: 'ion-code',
+		[IconSet.IconDev]: 'devicons devicons-code'
 	});
 	set('tcl', {
 		[IconSet.ColorLight]: '#c3b15f',
-		[IconSet.IconIon]: 'ion-code'
+		[IconSet.IconIon]: 'ion-code',
+		[IconSet.IconDev]: 'devicons devicons-code'
 	});
 	set('rst', {
 		[IconSet.ColorLight]: '#6f8696',
-		[IconSet.IconIon]: 'ion-ios-paper'
+		[IconSet.IconIon]: 'ion-ios-paper',
+		[IconSet.IconDev]: 'devicons devicons-rust'
 	});
 	set('d', {
 		[IconSet.ColorLight]: '#960000',
@@ -449,6 +497,38 @@ export function setExtensions(set: (extension: string | string[], icon: PresetIc
 	set('map', {
 		[IconSet.ColorLight]: '#e0591f',
 		[IconSet.IconIon]: 'ion-ios-photos-outline'
+	});
+}
+
+export function setPrefixes(set: RegisterIcon) {
+	set(['spec', 'test'], {
+		[IconSet.ColorLight]: '#146ae3',
+		[IconSet.IconIon]: 'ion-android-radio-button-on'
+	});
+	set('min', {
+		[IconSet.ColorLight]: '#f28b1d',
+		[IconSet.IconIon]: ['ion-minus-circled', 14]
+	});
+}
+
+export function setFullFileNames(set: RegisterIcon) {
+	
+}
+export function setFileNames(set: RegisterFileNameIcon) {
+	set('package', ['json'], {
+		[IconSet.ColorLight]: '#cb3837',
+		[IconSet.IconIon]: 'ion-briefcase',
+		[IconSet.IconDev]: 'devicons devicons-npm'
+	});
+	set('gulpfile', ['js', 'ts', 'coffee', 'babel.js'], {
+		[IconSet.ColorLight]: '#eb4a4b',
+		[IconSet.IconIon]: 'ion-hammer',
+		[IconSet.IconDev]: 'devicons devicons-gulp'
+	});
+	set('gruntfile', ['js'], {
+		[IconSet.ColorLight]: '#fba919',
+		[IconSet.IconIon]: 'ion-hammer',
+		[IconSet.IconDev]: 'devicons devicons-grunt'
 	});
 }
 

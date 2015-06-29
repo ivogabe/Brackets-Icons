@@ -24,9 +24,21 @@ export interface Dictionary<T> {
 	 * Returns the item related to this filename.
 	 * Files like `gulpfile.js` or `package.json` can have other
 	 * items than `foo.js` or `foo.json`.
+	 * The full filename (example: `gulpfile.js`) will be passed.
 	 * Returns `undefined` when the filename isn't found.
 	 */
-	findFileName(fileName: string): T;
+	findFullFileName(fileName: string): T;
+	/**
+	 * Returns the item related to this filename.
+	 * Files like `gulpfile.js` or `package.json` can have other
+	 * items than `foo.js` or `foo.json`.
+	 * The filename without extension will be passed.
+	 * For a file `a.b.c.d` this method can be invoked 3 times:
+	 * ('a', 'b.c.d'), ('a.b', 'c.d'), ('a.b.c', 'd').
+	 * `findFullFileName` will be invoked once on `a.b.c.d`. 
+	 * Returns `undefined` when the filename isn't found.
+	 */
+	findFileName(fileName: string, extension: string): T;
 	
 	/**
 	 * Returns an item that can be used if no other icon is found.
@@ -36,7 +48,7 @@ export interface Dictionary<T> {
 
 export function findInDictionary<U>(dictionary: Dictionary<U>, fileName: string): U[] {
 	let matches: U[] = [];
-	let match = dictionary.findFileName(fileName);
+	let match = dictionary.findFullFileName(fileName);
 	if (match !== undefined) return [match];
 	
 	let dotIndex: number;
@@ -45,6 +57,9 @@ export function findInDictionary<U>(dictionary: Dictionary<U>, fileName: string)
 	do {
 		dotIndex = dotIndexNext;
 		dotIndexNext = fileName.indexOf('.', dotIndex + 1);
+		
+		match = dictionary.findFileName(fileName.substring(0, dotIndex), fileName.substring(dotIndex + 1));
+		if (match !== undefined) matches = [match];
 		
 		match = dictionary.findExtension(fileName.substring(dotIndex + 1));
 		if (match !== undefined) {

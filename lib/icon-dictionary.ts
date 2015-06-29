@@ -39,11 +39,17 @@ export class IconDictionary implements Dictionary<Icon> {
 		
 		return this.toIcon(presets.findExtensionPrefix(extension));
 	}
-	findFileName(extension: string) {
-		let match = this.user.findFileName(extension);
+	findFullFileName(fileName: string) {
+		let match = this.user.findFullFileName(fileName);
 		if (match !== undefined) return match;
 		
-		return this.toIcon(presets.findFileName(extension));
+		return this.toIcon(presets.findFullFileName(fileName));
+	}
+	findFileName(fileName: string, extension: string) {
+		let match = this.user.findFileName(fileName, extension);
+		if (match !== undefined) return match;
+		
+		return this.toIcon(presets.findFileName(fileName, extension));
 	}
 	getEmptyItem(fileName: string) {
 		const preset = presets.getEmptyItem(fileName);

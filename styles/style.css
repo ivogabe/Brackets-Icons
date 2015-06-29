@@ -2,6 +2,7 @@ ins.file-icon-box {
 	width: 20px;
 	display: inline-block;
 	text-decoration: none;
+	margin-left: -6px;
 }
 .file-icon {
 	text-align: center;

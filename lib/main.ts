@@ -74,7 +74,8 @@ const provider = (entry) => {
 WorkingSetView.addIconProvider(provider);
 FileTreeView.addIconProvider(provider);
 
-prefs.on("change", function (e, data) {
+prefs.on('change', () => {
 	loadPreferences();
 	ProjectManager.rerenderTree();
+	WorkingSetView.refresh(true);
 });

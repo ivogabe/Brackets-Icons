@@ -63,7 +63,8 @@ Open Brackets, and click the extensions button on the right. Search for 'Bracket
 
 Customizability
 --------------
-For information on how to customize icons, click [here](customizability.md)!
+You can choose the icon set in the view menu. You can choose between the icons of Ionicons (default) and Devicons.
+Besides these presets, you can also customize specific extensions. For information on how to customize icons, click [here](customizability.md).
 
 How to build
 ------------
@@ -77,4 +78,4 @@ When you've installed the dependencies, you can build the project by running `gu
 
 License
 -------
-Brackets Icons is licensed under the [MIT license](http://opensource.org/licenses/MIT). Ionicons is also licensed under the MIT license.
+Brackets Icons is licensed under the [MIT license](http://opensource.org/licenses/MIT). Ionicons and Devicons are also licensed under the MIT license.

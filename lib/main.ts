@@ -2,7 +2,7 @@
 declare var brackets: any, $: any;
 
 import * as module from 'module';
-import { getIconSet } from './icon';
+import { getIconSet, IconSet } from './icon';
 import { findInDictionary } from './dictionary';
 import { IconDictionary } from './icon-dictionary';
 
@@ -13,9 +13,23 @@ const prefs = PreferencesManager.getExtensionPrefs('brackets-icons');
 prefs.definePreference('icons', 'object', {});
 prefs.definePreference('iconset', 'string', 'ionicons');
 
+// Change iconset menu options
+const CommandManager = brackets.getModule('command/CommandManager');
+const Menus = brackets.getModule('command/Menus');
+const commandThemeIonId = 'icons.iconset-ionicons';
+const commandThemeDevId = 'icons.iconset-devicons';
+const commandThemeIon = CommandManager.register('Ionicons', commandThemeIonId, () => { prefs.set('iconset', 'ionicons'); });
+const commandThemeDev = CommandManager.register('Devicons', commandThemeDevId, () => { prefs.set('iconset', 'devicons'); });
+const menuView = Menus.getMenu(Menus.AppMenuBar.VIEW_MENU);
+menuView.addMenuDivider();
+menuView.addMenuItem(commandThemeIonId);
+menuView.addMenuItem(commandThemeDevId);
+
 function loadPreferences() {
 	icons.user.settings = prefs.get('icons');
 	icons.iconSet = getIconSet(prefs.get('iconset'));
+	commandThemeIon.setChecked(icons.iconSet === IconSet.IconIon);
+	commandThemeDev.setChecked(icons.iconSet === IconSet.IconDev);
 }
 
 const ExtensionUtils = brackets.getModule('utils/ExtensionUtils');

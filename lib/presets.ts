@@ -391,6 +391,11 @@ export function setExtensions(set: RegisterIcon) {
 		[IconSet.IconIon]: 'ion-briefcase',
 		[IconSet.IconDev]: ['devicons devicons-netbeans', 17]
 	});
+	set('xpi', {
+		[IconSet.ColorLight]: '#5bac0d',
+		[IconSet.IconIon]: 'ion-briefcase',
+		[IconSet.IconDev]: ['devicons devicons-netbeans', 17]
+	});
 	
 	// Settings
 	set([
@@ -449,6 +454,10 @@ export function setExtensions(set: RegisterIcon) {
 	});
 	set('dockerignore', {
 		[IconSet.ColorLight]: '#0296C9',
+		[IconSet.IconIon]: ['ion-minus-circled', 14]
+	});
+	set('jpmignore', {
+		[IconSet.ColorLight]: '#5bac0d',
 		[IconSet.IconIon]: ['ion-minus-circled', 14]
 	});
 	set(['yml', 'yaml'], {

@@ -3,8 +3,8 @@ ins.file-icon-box {
 	display: inline-block;
 	text-decoration: none;
 	margin-left: -6px;
-        margin-right:4px;
-        vertical-align:text-top;
+    margin-right:4px;
+    vertical-align:text-top;
 }
 .file-icon {
 	text-align: center;
@@ -36,6 +36,7 @@ ins.file-icon-box {
 }
 
 .file-icon-rotated {
+	-ms-transform: rotate(-10deg);
 	transform: rotate(-10deg);
 	-webkit-transform: rotate(-10deg);
 }

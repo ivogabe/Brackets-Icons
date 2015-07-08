@@ -438,6 +438,10 @@ export function setExtensions(set: RegisterIcon) {
 		[IconSet.ColorLight]: '#0da064',
 		[IconSet.IconIon]: ['ion-minus-circled', 14]
 	});
+	set('dockerignore', {
+		[IconSet.ColorLight]: '#0296C9',
+		[IconSet.IconIon]: ['ion-minus-circled', 14]
+	});
 	set(['yml', 'yaml'], {
 		[IconSet.ColorLight]: '#008000',
 		[IconSet.IconIon]: ['ion-navicon', 14]
@@ -512,7 +516,11 @@ export function setPrefixes(set: RegisterIcon) {
 }
 
 export function setFullFileNames(set: RegisterIcon) {
-	
+	set('Dockerfile', {
+		[IconSet.ColorLight]: '#0296C9',
+		[IconSet.IconIon]: ['ion-navicon', 14]
+		[IconSet.IconDev]: 'devicons devicons-docker'
+	});
 }
 export function setFileNames(set: RegisterFileNameIcon) {
 	set('package', ['json'], {

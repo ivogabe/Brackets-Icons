@@ -120,7 +120,7 @@ export function setExtensions(set: RegisterIcon) {
 	set('scala', {
 		[IconSet.ColorLight]: '#72d0eb',
 		[IconSet.IconIon]: 'ion-navicon-round file-icon-rotated',
-		[IconSet.IconDev]: 'devicons devicons-java'
+		[IconSet.IconDev]: 'devicons devicons-scala'
 	});
 	set('groovy', {
 		[IconSet.ColorLight]: '#4298b8',

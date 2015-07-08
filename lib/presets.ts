@@ -412,7 +412,8 @@ export function setExtensions(set: RegisterIcon) {
 		'gruntrc',
 		'jsrc',
 		'pro',
-		'editorconfig'
+		'editorconfig',
+		'iml'
 	], {
 		[IconSet.ColorLight]: '#777777',
 		[IconSet.IconIon]: 'ion-ios-gear',

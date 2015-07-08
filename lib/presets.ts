@@ -348,39 +348,48 @@ export function setExtensions(set: RegisterIcon) {
 	// Archive
 	set('zip', {
 		[IconSet.ColorLight]: '#008858',
-		[IconSet.IconIon]: 'ion-briefcase'
+		[IconSet.IconIon]: 'ion-briefcase',
+		[IconSet.IconDev]: ['devicons devicons-netbeans', 17]
 	});
 	set('rar', {
 		[IconSet.ColorLight]: '#005888',
-		[IconSet.IconIon]: 'ion-briefcase'
+		[IconSet.IconIon]: 'ion-briefcase',
+		[IconSet.IconDev]: ['devicons devicons-netbeans', 17]
 	});
 	set('7z', {
 		[IconSet.ColorLight]: '#880058',
-		[IconSet.IconIon]: 'ion-briefcase'
+		[IconSet.IconIon]: 'ion-briefcase',
+		[IconSet.IconDev]: ['devicons devicons-netbeans', 17]
 	});
 	set('tgz', {
 		[IconSet.ColorLight]: '#7900bc',
-		[IconSet.IconIon]: 'ion-briefcase'
+		[IconSet.IconIon]: 'ion-briefcase',
+		[IconSet.IconDev]: ['devicons devicons-netbeans', 17]
 	});
 	set('tar', {
 		[IconSet.ColorLight]: '#885800',
-		[IconSet.IconIon]: 'ion-briefcase'
+		[IconSet.IconIon]: 'ion-briefcase',
+		[IconSet.IconDev]: ['devicons devicons-netbeans', 17]
 	});
 	set('gz', {
 		[IconSet.ColorLight]: '#588800',
-		[IconSet.IconIon]: 'ion-briefcase'
+		[IconSet.IconIon]: 'ion-briefcase',
+		[IconSet.IconDev]: ['devicons devicons-netbeans', 17]
 	});
 	set('bzip', {
 		[IconSet.ColorLight]: '#884300',
-		[IconSet.IconIon]: 'ion-briefcase'
+		[IconSet.IconIon]: 'ion-briefcase',
+		[IconSet.IconDev]: ['devicons devicons-netbeans', 17]
 	});
 	set('msi', {
 		[IconSet.ColorLight]: '#6f8696',
-		[IconSet.IconIon]: 'ion-briefcase'
+		[IconSet.IconIon]: 'ion-briefcase',
+		[IconSet.IconDev]: ['devicons devicons-netbeans', 17]
 	});
 	set('dmg', {
 		[IconSet.ColorLight]: '#6f8696',
-		[IconSet.IconIon]: 'ion-briefcase'
+		[IconSet.IconIon]: 'ion-briefcase',
+		[IconSet.IconDev]: ['devicons devicons-netbeans', 17]
 	});
 	
 	// Settings

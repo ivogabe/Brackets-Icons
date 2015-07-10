@@ -29,7 +29,7 @@ export function setExtensions(set: RegisterIcon) {
 		[IconSet.IconIon]: 'ion-code',
 		[IconSet.IconDev]: 'devicons devicons-code'
 	});
-	
+
 	// Stylesheets
 	set('css', {
 		[IconSet.ColorLight]: '#0270b9',
@@ -51,7 +51,7 @@ export function setExtensions(set: RegisterIcon) {
 		[IconSet.IconIon]: ['ion-pound', 12],
 		[IconSet.IconDev]: 'devicons devicons-stylus'
 	});
-	
+
 	// JavaScript
 	set('js', {
 		[IconSet.ColorLight]: '#e5a228',
@@ -93,7 +93,7 @@ export function setExtensions(set: RegisterIcon) {
 		[IconSet.IconIon]: 'ion-beaker',
 		[IconSet.IconDev]: 'devicons devicons-javascript' // TODO: Better icon
 	});
-	
+
 	// Server side
 	set('php', {
 		[IconSet.ColorLight]: '#6976c3',
@@ -110,7 +110,7 @@ export function setExtensions(set: RegisterIcon) {
 		[IconSet.IconIon]: 'ion-soup-can-outline',
 		[IconSet.IconDev]: 'devicons devicons-database'
 	});
-	
+
 	// Java
 	set(['java', 'class'], {
 		[IconSet.ColorLight]: '#5382a1',
@@ -132,13 +132,13 @@ export function setExtensions(set: RegisterIcon) {
 		[IconSet.IconIon]: 'ion-ios-gear',
 		[IconSet.IconDev]: 'devicons devicons-aptana' // Looks like a gear
 	});
-	
+
 	// Lua
 	set('lua', {
 		[IconSet.ColorLight]: '#00207d',
 		[IconSet.IconIon]: ['ion-record', 14]
 	});
-	
+
 	// Clojure
 	set('clj', {
 		[IconSet.ColorLight]: '#63b132',
@@ -209,7 +209,7 @@ export function setExtensions(set: RegisterIcon) {
 		[IconSet.IconIon]: 'ion-social-python',
 		[IconSet.IconDev]: 'devicons devicons-python'
 	});
-	
+
 	// Qt Quick
 	set('qml', {
 		[IconSet.ColorLight]: '#42ed0e',
@@ -228,7 +228,7 @@ export function setExtensions(set: RegisterIcon) {
 		[IconSet.IconIon]: 'ion-android-list',
 		[IconSet.IconDev]: 'devicons devicons-terminal'
 	});
-	
+
 	// Applications
 	set('exe', {
 		[IconSet.ColorLight]: '#57a084',
@@ -240,7 +240,7 @@ export function setExtensions(set: RegisterIcon) {
 		[IconSet.IconIon]: 'ion-social-windows',
 		[IconSet.IconDev]: 'devicons devicons-windows'
 	});
-	
+
 	// Templating
 	set('jade', {
 		[IconSet.ColorLight]: '#00a57a',
@@ -396,7 +396,7 @@ export function setExtensions(set: RegisterIcon) {
 		[IconSet.IconIon]: 'ion-briefcase',
 		[IconSet.IconDev]: ['devicons devicons-netbeans', 17]
 	});
-	
+
 	// Settings
 	set([
 		'project',
@@ -469,7 +469,7 @@ export function setExtensions(set: RegisterIcon) {
 		[IconSet.ColorLight]: '#b9e11f',
 		[IconSet.IconIon]: 'ion-wand'
 	});
-	
+
 	// LaTeX
 	set(['tex', 'bib', 'sty'], {
 		[IconSet.ColorLight]: '#262686',
@@ -541,11 +541,20 @@ export function setFullFileNames(set: RegisterIcon) {
 		[IconSet.IconDev]: 'devicons devicons-docker'
 	});
 }
+
 export function setFileNames(set: RegisterFileNameIcon) {
 	set('package', ['json'], {
 		[IconSet.ColorLight]: '#cb3837',
 		[IconSet.IconIon]: 'ion-briefcase',
 		[IconSet.IconDev]: 'devicons devicons-npm'
+	});
+	set('brackets', ['json'], {
+		[IconSet.ColorLight]: '#0083e8',
+		[IconSet.IconDev]: 'devicons devicons-brackets'
+	});
+	set('.brackets', ['json'], {
+		[IconSet.ColorLight]: '#0083e8',
+		[IconSet.IconDev]: 'devicons devicons-brackets'
 	});
 	set('gulpfile', ['js', 'ts', 'coffee', 'babel.js'], {
 		[IconSet.ColorLight]: '#eb4a4b',

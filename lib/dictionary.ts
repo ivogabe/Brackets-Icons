@@ -46,13 +46,17 @@ export interface Dictionary<T> {
 	getEmptyItem(extension: string): T;
 }
 
-export function findInDictionary<U>(dictionary: Dictionary<U>, fileName: string): U[] {
+export function findInDictionary<U>(dictionary: Dictionary<U>, fileName: string, compare: (a: U, b: U) => boolean): U[] {
 	let matches: U[] = [];
 	let match = dictionary.findFullFileName(fileName);
 	if (match !== undefined) return [match];
 	
 	let dotIndex: number;
 	let dotIndexNext: number = fileName.indexOf('.');
+	
+	const add = () => {
+		if (!compare(matches[matches.length - 1], match)) matches.push(match);
+	};
 	
 	do {
 		dotIndex = dotIndexNext;
@@ -63,7 +67,7 @@ export function findInDictionary<U>(dictionary: Dictionary<U>, fileName: string)
 		
 		match = dictionary.findExtension(fileName.substring(dotIndex + 1));
 		if (match !== undefined) {
-			matches.push(match);
+			add();
 			return matches;
 		}
 		
@@ -81,10 +85,11 @@ export function findInDictionary<U>(dictionary: Dictionary<U>, fileName: string)
 			// We should only match `js` here, so we need to forget `php`.
 			matches = [];
 		} else {
-			matches.push(match);
+			add();
 		}
 	} while (dotIndexNext !== -1);
 	
-	matches.push(dictionary.getEmptyItem(fileName));
+	match = dictionary.getEmptyItem(fileName);
+	add();
 	return matches;
 }

@@ -57,7 +57,11 @@ const provider = (entry) => {
 		return;
 	}
 
-	const data = findInDictionary(icons, entry.name);
+	const data = findInDictionary(icons, entry.name, (a, b) => {
+		if (a === b) return true;
+		if (a === undefined || b === undefined) return false;
+		return a.color === b.color && a.icon === b.icon && a.size === b.size;
+	});
 	const mainIcon = data[data.length - 1];
 	const secondIcon = data[data.length - 2];
 

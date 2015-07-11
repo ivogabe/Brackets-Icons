@@ -537,8 +537,8 @@ export function setPrefixes(set: RegisterIcon) {
 export function setFullFileNames(set: RegisterIcon) {
 	set('Dockerfile', {
 		[IconSet.ColorLight]: '#0296C9',
-		[IconSet.IconIon]: ['ion-navicon', 14]
-		[IconSet.IconDev]: 'devicons devicons-docker'
+		[IconSet.IconIon]: ['ion-navicon', 14],
+		[IconSet.IconDev]: ['devicons devicons-docker', 18]
 	});
 }
 

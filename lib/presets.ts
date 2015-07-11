@@ -548,11 +548,7 @@ export function setFileNames(set: RegisterFileNameIcon) {
 		[IconSet.IconIon]: 'ion-briefcase',
 		[IconSet.IconDev]: 'devicons devicons-npm'
 	});
-	set('brackets', ['json'], {
-		[IconSet.ColorLight]: '#0083e8',
-		[IconSet.IconDev]: 'devicons devicons-brackets'
-	});
-	set('.brackets', ['json'], {
+	set(['.brackets', 'brackets'], ['json'], {
 		[IconSet.ColorLight]: '#0083e8',
 		[IconSet.IconDev]: 'devicons devicons-brackets'
 	});

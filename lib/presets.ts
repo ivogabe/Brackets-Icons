@@ -86,7 +86,7 @@ export function setExtensions(set: RegisterIcon) {
 	set('json', {
 		[IconSet.ColorLight]: '#e5a228',
 		[IconSet.IconIon]: 'ion-ios-gear',
-		[IconSet.IconDev]: 'devicons devicons-javascript' // TODO: Better icon
+		[IconSet.IconDev]: 'devicons devicons-aptana'
 	});
 	set('ls', {
 		[IconSet.ColorLight]: '#369bd7',
@@ -125,7 +125,7 @@ export function setExtensions(set: RegisterIcon) {
 	set('groovy', {
 		[IconSet.ColorLight]: '#4298b8',
 		[IconSet.IconIon]: 'ion-ios-star',
-		[IconSet.IconDev]: 'devicons devicons-groovy'
+		[IconSet.IconDev]: ['devicons devicons-groovy', 18]
 	});
 	set('mf', {
 		[IconSet.ColorLight]: '#2f5796',
@@ -195,12 +195,12 @@ export function setExtensions(set: RegisterIcon) {
 	set(['rb', 'erb', 'rdoc'], {
 		[IconSet.ColorLight]: '#9b111e',
 		[IconSet.IconIon]: 'ion-heart',
-		[IconSet.IconDev]: 'devicons devicons-ruby'
+		[IconSet.IconDev]: ['devicons devicons-ruby', 14]
 	});
 	set('feature', {
 		[IconSet.ColorLight]: '#4e8b39',
 		[IconSet.IconIon]: 'ion-chatbox-working',
-		[IconSet.IconDev]: 'devicons devicons-ruby'
+		[IconSet.IconDev]: ['devicons devicons-ruby', 14]
 	});
 
 	// Python
@@ -507,7 +507,7 @@ export function setExtensions(set: RegisterIcon) {
 	set('rst', {
 		[IconSet.ColorLight]: '#6f8696',
 		[IconSet.IconIon]: 'ion-ios-paper',
-		[IconSet.IconDev]: 'devicons devicons-rust'
+		[IconSet.IconDev]: ['devicons devicons-rust', 18]
 	});
 	set('d', {
 		[IconSet.ColorLight]: '#960000',

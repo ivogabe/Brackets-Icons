@@ -46,50 +46,60 @@ export interface Dictionary<T> {
 	getEmptyItem(extension: string): T;
 }
 
-export function findInDictionary<U>(dictionary: Dictionary<U>, fileName: string, compare: (a: U, b: U) => boolean): U[] {
+export function findInDictionary<U>(dictionary: Dictionary<U>, fileName: string, secondMatch: boolean, compare: (a: U, b: U) => boolean): U[] {
 	let matches: U[] = [];
 	let match = dictionary.findFullFileName(fileName);
 	if (match !== undefined) return [match];
 	
 	let dotIndex: number;
-	let dotIndexNext: number = fileName.indexOf('.');
+	let dotIndexNext: number = fileName.lastIndexOf('.');
+	let extension: string;
+	let prefix: string;
 	
 	const add = () => {
-		if (!compare(matches[matches.length - 1], match)) matches.push(match);
-	};
-	
+		if (match !== undefined && !compare(matches[matches.length - 1], match)) {
+			matches.push(match);
+			if (secondMatch && matches.length === 1) return false;
+			return true;
+		}
+		return false;
+	}
+
 	do {
 		dotIndex = dotIndexNext;
-		dotIndexNext = fileName.indexOf('.', dotIndex + 1);
-		
-		match = dictionary.findFileName(fileName.substring(0, dotIndex), fileName.substring(dotIndex + 1));
-		if (match !== undefined) matches = [match];
-		
-		match = dictionary.findExtension(fileName.substring(dotIndex + 1));
-		if (match !== undefined) {
-			add();
+		dotIndexNext = fileName.lastIndexOf('.', dotIndex - 1);
+		extension = fileName.substring(dotIndex + 1);
+		prefix = fileName.substring(dotIndexNext + 1, dotIndex);
+
+		if (secondMatch) {
+			match = dictionary.findExtension(extension);
+			if (add()) return matches;
+			match = dictionary.findFileName(prefix, extension)
+			if (add()) return matches;
+		} else {
+			match = dictionary.findFileName(prefix, extension);
+			if (add()) return matches;
+			match = dictionary.findExtension(extension);
+			if (add()) return matches;
+		}
+
+		match = dictionary.findExtensionPrefix(prefix);
+		if (add()) return matches;
+		match = dictionary.findExtension(prefix);
+		if (add()) return matches;
+
+		// If the prefix matches nothing then as long as we have found something already
+		// we can return to avoid filenames like `foo.php.bar.js`, where `php` and `js`
+		// are known extensions. We should only match `js` here, so we need to forget `php`.
+		if (matches.length > 0) {
 			return matches;
 		}
-		
-		if (dotIndexNext === -1) {
-			break;
-		}
-		let prefix = fileName.substring(dotIndex + 1, dotIndexNext)
-		match = dictionary.findExtensionPrefix(prefix);
-		if (match === undefined) {
-			// Also allow `js` in `foo.js.php` as a prefix.
-			match = dictionary.findExtension(prefix);
-		}
-		if (match === undefined) {
-			// We could have a filename like `foo.php.bar.js`, where `php` and `js` are known extensions.
-			// We should only match `js` here, so we need to forget `php`.
-			matches = [];
-		} else {
-			add();
-		}
+
 	} while (dotIndexNext !== -1);
 	
-	match = dictionary.getEmptyItem(fileName);
-	add();
+	if (matches.length === 0) {
+		matches.push(dictionary.getEmptyItem(fileName));
+	}
+
 	return matches;
 }

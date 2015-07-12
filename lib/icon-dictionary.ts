@@ -7,6 +7,7 @@ export class IconDictionary implements Dictionary<Icon> {
 	user: UserDictionary;
 	color = IconSet.ColorLight;
 	iconSet = IconSet.IconIon;
+	secondary = true;
 	
 	constructor(settings: UserSettings = {}) {
 		this.user = new UserDictionary(settings);

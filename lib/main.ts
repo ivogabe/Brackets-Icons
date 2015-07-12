@@ -2,7 +2,7 @@
 declare var brackets: any, $: any;
 
 import * as module from 'module';
-import { getIconSet, IconSet } from './icon';
+import { getIconSet, IconSet, Icon } from './icon';
 import { findInDictionary } from './dictionary';
 import { IconDictionary } from './icon-dictionary';
 
@@ -12,22 +12,28 @@ const PreferencesManager = brackets.getModule('preferences/PreferencesManager');
 const prefs = PreferencesManager.getExtensionPrefs('brackets-icons');
 prefs.definePreference('icons', 'object', {});
 prefs.definePreference('iconset', 'string', 'ionicons');
+prefs.definePreference('secondary', 'boolean', true);
 
 // Change iconset menu options
 const CommandManager = brackets.getModule('command/CommandManager');
 const Menus = brackets.getModule('command/Menus');
+const commandThemeSecondary = 'icons.show-secondary';
 const commandThemeIonId = 'icons.iconset-ionicons';
 const commandThemeDevId = 'icons.iconset-devicons';
+const commandSecondary = CommandManager.register('Show secondary icons', commandThemeSecondary, () => { prefs.set('secondary', !icons.secondary); });
 const commandThemeIon = CommandManager.register('Ionicons', commandThemeIonId, () => { prefs.set('iconset', 'ionicons'); });
 const commandThemeDev = CommandManager.register('Devicons', commandThemeDevId, () => { prefs.set('iconset', 'devicons'); });
 const menuView = Menus.getMenu(Menus.AppMenuBar.VIEW_MENU);
 menuView.addMenuDivider();
+menuView.addMenuItem(commandSecondary);
 menuView.addMenuItem(commandThemeIonId);
 menuView.addMenuItem(commandThemeDevId);
 
 function loadPreferences() {
 	icons.user.settings = prefs.get('icons');
 	icons.iconSet = getIconSet(prefs.get('iconset'));
+	icons.secondary = prefs.get('secondary');
+	commandSecondary.setChecked(icons.secondary);
 	commandThemeIon.setChecked(icons.iconSet === IconSet.IconIon);
 	commandThemeDev.setChecked(icons.iconSet === IconSet.IconDev);
 }
@@ -52,40 +58,36 @@ ExtensionUtils.loadStyleSheet(module, '../styles/devicons.min.css');
 
 loadPreferences();
 
+const createIcon = (data: Icon, secondary: boolean) => {
+	const type = secondary ? 'secondary' : 'main';
+	const size = secondary ? 0.75 : 1;
+	const $icon = $('<div>');
+	$icon.addClass(data.icon);
+	$icon.addClass('file-icon file-tree-view-icon file-icon-' + type);
+	$icon.css({
+		color: data.color,
+		fontSize: (data.size || 16) * size + 'px'
+	});
+	return $icon;
+};
+
 const provider = (entry) => {
 	if (!entry.isFile) {
 		return;
 	}
 
-	const data = findInDictionary(icons, entry.name, (a, b) => {
+	const data = findInDictionary(icons, entry.name, icons.secondary, (a, b) => {
 		if (a === b) return true;
 		if (a === undefined || b === undefined) return false;
 		return a.color === b.color && a.icon === b.icon && a.size === b.size;
 	});
-	const mainIcon = data[data.length - 1];
-	const secondIcon = data[data.length - 2];
 
 	const $icon = $('<ins>');
 	$icon.addClass('file-icon-box')
 
-	const $main = $('<div>');
-	$main.addClass(mainIcon.icon);
-	$main.addClass('file-icon file-icon-main file-tree-view-icon');
-	$main.css({
-		color: mainIcon.color,
-		fontSize: (mainIcon.size || 16) + 'px'
-	});
-	$icon.append($main);
-	if (secondIcon !== undefined) {
-		const $second = $('<div>');
-		$second.addClass(secondIcon.icon);
-		$second.addClass('file-icon file-icon-secondary file-tree-view-icon');
-		$second.css({
-			color: secondIcon.color,
-			fontSize: (secondIcon.size || 16) * 3 / 4 + 'px'
-		});
-		$icon.append($second);
-	}
+	$icon.append(createIcon(data[0], false));
+	if (data[1] !== undefined) $icon.append(createIcon(data[1], true));
+
 	return $icon;
 };
 

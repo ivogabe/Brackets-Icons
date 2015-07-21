@@ -10,9 +10,10 @@ gulp.task('scripts', function() {
 		.pipe(gulp.dest('dist'));
 });
 
-gulp.task('archive', function() {
+gulp.task('archive', ['scripts'], function() {
+
 	return gulp.src([
-			'dist/**/*',
+			'dist/*.js',
 			'fonts/**/*',
 			'*.md',
 			'package.json',
@@ -23,4 +24,4 @@ gulp.task('archive', function() {
 		.pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['zip']);
+gulp.task('default', ['archive']);

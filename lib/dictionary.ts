@@ -47,6 +47,7 @@ export interface Dictionary<T> {
 }
 
 export function findInDictionary<U>(dictionary: Dictionary<U>, fileName: string, secondMatch: boolean, compare: (a: U, b: U) => boolean): U[] {
+	fileName = fileName.toLowerCase();
 	let match = dictionary.findFullFileName(fileName);
 	if (match !== undefined) return [match];
 

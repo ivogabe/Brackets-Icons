@@ -557,7 +557,7 @@ export function setFileNames(set: RegisterFileNameIcon) {
 		[IconSet.IconIon]: 'ion-hammer',
 		[IconSet.IconDev]: 'devicons devicons-gulp'
 	});
-	set('gruntfile', ['js'], {
+	set('Gruntfile', ['js', 'coffee'], {
 		[IconSet.ColorLight]: '#fba919',
 		[IconSet.IconIon]: 'ion-hammer',
 		[IconSet.IconDev]: 'devicons devicons-grunt'

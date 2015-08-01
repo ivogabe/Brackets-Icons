@@ -4,7 +4,7 @@ export interface Icon {
 	color: string;
 }
 
-export enum IconSet {
+export const enum IconSet {
 	ColorLight,
 	IconIon, // Ionicons
 	IconDev // Devicons

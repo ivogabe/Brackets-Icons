@@ -52,44 +52,62 @@ export function findInDictionary<U>(dictionary: Dictionary<U>, fileName: string,
 	if (match !== undefined) return [match];
 
 	let matches: U[] = [];
-	let elements: string[] = fileName.split(".");
 	
-	// If the file name starts with a . then we don't want to match on the empty string
-	if (elements[0] === '') elements.shift();
-
-	let extension: string = elements[elements.length - 1];
-	let prefix: string = elements[elements.length - 2];
-	
-	const add = () => {
-		if (match !== undefined && !compare(matches[matches.length - 1], match)) {
-			matches.push(match);
-			if (secondMatch && matches.length === 1) return false;
-			return true;
+	// Start with the longest extension so we match `.foo.bar` before `.bar`.
+	let index = fileName.indexOf('.');
+	while (index !== -1) {
+		const extension = fileName.substring(index + 1);
+		match = dictionary.findExtension(extension);
+		
+		if (!match) {
+			index = fileName.indexOf('.', index + 1);
+			continue;
 		}
-		return false;
+
+		matches = [match];
+
+		if (index !== 0) {
+			const prefix = fileName.substring(0, index);
+			match = dictionary.findFileName(prefix, extension);
+			if (match) matches.push(match);
+		}
+
+		break;
 	}
 
 	if (secondMatch) {
-		match = dictionary.findExtension(extension);
-		if (add()) return matches;
-		match = dictionary.findFileName(prefix, extension)
-		if (add()) return matches;
+		if (matches.length === 2) {
+			return matches;
+		}
 	} else {
-		match = dictionary.findFileName(prefix, extension);
-		if (add()) return matches;
-		match = dictionary.findExtension(extension);
-		if (add()) return matches;
+		if (matches.length === 1) {
+			return matches;
+		} else if (matches.length === 2) {
+			return [matches[1]];
+		}
 	}
 
 	if (matches.length === 0){
 		matches.push(dictionary.getEmptyItem(fileName));
+		index = fileName.lastIndexOf('.');
 	}
 
-	if (secondMatch && elements.length > 2) {
-		match = dictionary.findExtensionPrefix(prefix);
-		if (add()) return matches;
-		match = dictionary.findExtension(prefix);
-		if (add()) return matches;
+	const primaryIndex = index;
+
+	index = fileName.indexOf('.');
+	while (index !== -1 && index < primaryIndex) {
+		const prefix = fileName.substring(index + 1, primaryIndex);
+		match = dictionary.findExtensionPrefix(prefix)
+			|| dictionary.findExtension(prefix);
+		
+		if (match) {
+			if (!compare(matches[0], match)) {
+				matches.push(match);
+			}
+			break;
+		}
+
+		index = fileName.indexOf('.', index + 1);
 	}
 
 	return matches;

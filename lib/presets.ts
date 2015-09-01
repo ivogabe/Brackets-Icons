@@ -469,6 +469,10 @@ export function setExtensions(set: RegisterIcon) {
 		[IconSet.ColorLight]: '#b9e11f',
 		[IconSet.IconIon]: 'ion-wand'
 	});
+	set(['csv', 'tsv'], {
+		[IconSet.ColorLight]: '#217346',
+		[IconSet.IconIon]: 'ion-grid'
+	});
 
 	// LaTeX
 	set(['tex', 'bib', 'sty'], {

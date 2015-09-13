@@ -209,6 +209,13 @@ export function setExtensions(set: RegisterIcon) {
 		[IconSet.IconIon]: 'ion-social-python',
 		[IconSet.IconDev]: 'devicons devicons-python'
 	});
+	
+	// Haskell
+	set('hs', {
+		[IconSet.ColorLight]: '#c4451d',
+		[IconSet.IconIon]: 'ion-android-share-alt file-icon-rotate-90',
+		[IconSet.IconDev]: 'devicons devicons-haskell'
+	})
 
 	// Qt Quick
 	set('qml', {

@@ -18,11 +18,11 @@ export class UserDictionary implements Dictionary<Icon> {
 	findExtensionPrefix(extension: string) {
 		return this.settings[extension];
 	}
-	findFullFileName(extension: string) {
-		return this.settings[extension];
+	findFullFileName(fileName: string) {
+		return this.settings[fileName];
 	}
 	findFileName(fileName: string, extension: string) {
-		return this.settings[extension];
+		return this.settings[fileName];
 	}
 	getEmptyItem(fileName: string) {
 		return undefined;

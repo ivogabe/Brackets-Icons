@@ -64,7 +64,10 @@ Open Brackets, and click the extensions button on the right. Search for 'Bracket
 
 Customizability
 --------------
-You can choose the icon set in the view menu. You can choose between the icons of Ionicons (default) and Devicons.
+You can choose the icon set in the view menu. You can choose between the icons of Ionicons (default, left image) and Devicons (right image).
+
+![Brackets Icons](https://raw.githubusercontent.com/ivogabe/Brackets-Icons/master/screenshots/screenshot-2.png)
+
 Besides these presets, you can also customize specific extensions. For information on how to customize icons, click [here](customizability.md).
 
 How to build

@@ -58,7 +58,7 @@ export function setExtensions(set: RegisterIcon) {
 		[IconSet.IconIon]: ['file-icon-c', 13],
 		[IconSet.IconDev]: 'devicons devicons-javascript'
 	});
-    set('jsx', {
+	set('jsx', {
 		[IconSet.ColorLight]: '#f8c63d',
 		[IconSet.IconIon]: ['file-icon-c', 13],
 		[IconSet.IconDev]: 'devicons devicons-javascript'

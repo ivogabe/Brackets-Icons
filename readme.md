@@ -1,6 +1,7 @@
 Brackets Icons
 ==============
-This extension adds file icons (from the [Ionicons](http://ionicons.com) project) to the brackets file tree. 
+*File icons in the file tree using [Ionicons](http://ionicons.com) or [Devicons](http://vorillaz.github.io/devicons/)*
+
 ![Brackets Icons](https://raw.githubusercontent.com/ivogabe/Brackets-Icons/master/screenshots/screenshot-1.png)
 
 Supported files

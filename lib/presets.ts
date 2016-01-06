@@ -527,7 +527,8 @@ export function setExtensions(set: RegisterIcon) {
 	});
 	set('d', {
 		[IconSet.ColorLight]: '#960000',
-		[IconSet.IconIon]: 'ion-contrast'
+		[IconSet.IconIon]: 'ion-contrast',
+		[IconSet.IconDev]: 'devicons devicons-dlang'
 	});
 	set('r', {
 		[IconSet.ColorLight]: '#8495C0',

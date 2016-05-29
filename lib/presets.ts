@@ -446,6 +446,17 @@ export function setExtensions(set: RegisterIcon) {
 		[IconSet.IconIon]: ['ion-ios-paper-outline', 18],
 		[IconSet.IconDev]: 'devicons devicons-aptana' // Looks like a gear
 	});
+	set([
+		'eslintrc',
+		'eslintrc.js',
+		'eslintrc.yaml',
+		'eslintrc.yml',
+		'eslintrc.json'
+	], {
+		[IconSet.ColorLight]: '#3a33d1',
+		[IconSet.IconIon]: 'ion-ios-gear',
+		[IconSet.IconDev]: 'devicons devicons-aptana' // Looks like a gear
+	});
 
 	// Other text files
 	set('txt', {

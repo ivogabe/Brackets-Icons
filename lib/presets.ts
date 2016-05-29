@@ -254,7 +254,7 @@ export function setExtensions(set: RegisterIcon) {
 	});
 
 	// Templating
-	set('jade', {
+	set(['pug', 'jade'], {
 		[IconSet.ColorLight]: '#00a57a',
 		[IconSet.IconIon]: 'ion-egg'
 	});

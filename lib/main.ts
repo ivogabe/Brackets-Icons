@@ -72,15 +72,21 @@ const createIcon = (data: Icon, secondary: boolean) => {
 };
 
 const provider = (entry) => {
+    var data;
 	if (!entry.isFile) {
-		return;
+		data = [{
+                color: "#666",
+                icon: "ion-android-folder",
+                size: 15
+            }];
 	}
-
-	const data = findInDictionary(icons, entry.name, icons.secondary, (a, b) => {
-		if (a === b) return true;
-		if (a === undefined || b === undefined) return false;
-		return a.color === b.color && a.icon === b.icon && a.size === b.size;
-	});
+    else {
+        data = findInDictionary(icons, entry.name, icons.secondary, (a, b) => {
+            if (a === b) return true;
+            if (a === undefined || b === undefined) return false;
+            return a.color === b.color && a.icon === b.icon && a.size === b.size;
+        });
+    }
 
 	const $icon = $('<ins>');
 	$icon.addClass('file-icon-box')

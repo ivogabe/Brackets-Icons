@@ -18,14 +18,17 @@ prefs.definePreference('secondary', 'boolean', true);
 const CommandManager = brackets.getModule('command/CommandManager');
 const Menus = brackets.getModule('command/Menus');
 const commandThemeSecondary = 'icons.show-secondary';
+const commandThemeFolderIcons = 'icons.show-folder-icons';
 const commandThemeIonId = 'icons.iconset-ionicons';
 const commandThemeDevId = 'icons.iconset-devicons';
 const commandSecondary = CommandManager.register('Show secondary icons', commandThemeSecondary, () => { prefs.set('secondary', !icons.secondary); });
+const commandFolderIcons = CommandManager.register('Show folder icons', commandThemeFolderIcons, () => { prefs.set('foldericons', !icons.foldericons); });
 const commandThemeIon = CommandManager.register('Ionicons', commandThemeIonId, () => { prefs.set('iconset', 'ionicons'); });
 const commandThemeDev = CommandManager.register('Devicons', commandThemeDevId, () => { prefs.set('iconset', 'devicons'); });
 const menuView = Menus.getMenu(Menus.AppMenuBar.VIEW_MENU);
 menuView.addMenuDivider();
 menuView.addMenuItem(commandSecondary);
+menuView.addMenuItem(commandFolderIcons);
 menuView.addMenuItem(commandThemeIonId);
 menuView.addMenuItem(commandThemeDevId);
 
@@ -33,6 +36,7 @@ function loadPreferences() {
 	icons.user.settings = prefs.get('icons');
 	icons.iconSet = getIconSet(prefs.get('iconset'));
 	icons.secondary = prefs.get('secondary');
+	icons.foldericons = prefs.get('foldericons');
 	commandSecondary.setChecked(icons.secondary);
 	commandThemeIon.setChecked(icons.iconSet === IconSet.IconIon);
 	commandThemeDev.setChecked(icons.iconSet === IconSet.IconDev);
@@ -72,14 +76,18 @@ const createIcon = (data: Icon, secondary: boolean) => {
 };
 
 const provider = (entry) => {
-    var data;
-	if (!entry.isFile) {
-		data = [{
+    let data;
+    if (!entry.isFile) {
+        if (!icons.foldericons) {
+            return;
+        } 
+        else {
+            data = [{
                 color: "#666",
                 icon: "ion-android-folder",
                 size: 15
             }];
-	}
+        }
     else {
         data = findInDictionary(icons, entry.name, icons.secondary, (a, b) => {
             if (a === b) return true;

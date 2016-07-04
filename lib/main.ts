@@ -13,6 +13,7 @@ const prefs = PreferencesManager.getExtensionPrefs('brackets-icons');
 prefs.definePreference('icons', 'object', {});
 prefs.definePreference('iconset', 'string', 'ionicons');
 prefs.definePreference('secondary', 'boolean', true);
+prefs.definePreference('foldericons', 'boolean', false);
 
 // Change iconset menu options
 const CommandManager = brackets.getModule('command/CommandManager');
@@ -110,6 +111,7 @@ FileTreeView.addIconProvider(provider);
 
 prefs.on('change', () => {
 	loadPreferences();
+	$('.jstree-open>a, .jstree-closed>a').css('margin-left', icons.foldericons ? '13px' : '0');
 	ProjectManager.rerenderTree();
 	WorkingSetView.refresh(true);
 });

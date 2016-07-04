@@ -39,6 +39,7 @@ function loadPreferences() {
 	icons.secondary = prefs.get('secondary');
 	icons.foldericons = prefs.get('foldericons');
 	commandSecondary.setChecked(icons.secondary);
+	commandFolderIcons.setChecked(icons.foldericons);
 	commandThemeIon.setChecked(icons.iconSet === IconSet.IconIon);
 	commandThemeDev.setChecked(icons.iconSet === IconSet.IconDev);
 }

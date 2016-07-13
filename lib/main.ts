@@ -23,7 +23,7 @@ const commandThemeFolderIcons = 'icons.show-folder-icons';
 const commandThemeIonId = 'icons.iconset-ionicons';
 const commandThemeDevId = 'icons.iconset-devicons';
 const commandSecondary = CommandManager.register('Show secondary icons', commandThemeSecondary, () => { prefs.set('secondary', !icons.secondary); });
-const commandFolderIcons = CommandManager.register('Show folder icons', commandThemeFolderIcons, () => { prefs.set('foldericons', !icons.foldericons); });
+const commandFolderIcons = CommandManager.register('Show folder icons', commandThemeFolderIcons, () => { prefs.set('foldericons', !icons.folderIcons); });
 const commandThemeIon = CommandManager.register('Ionicons', commandThemeIonId, () => { prefs.set('iconset', 'ionicons'); });
 const commandThemeDev = CommandManager.register('Devicons', commandThemeDevId, () => { prefs.set('iconset', 'devicons'); });
 const menuView = Menus.getMenu(Menus.AppMenuBar.VIEW_MENU);
@@ -37,9 +37,9 @@ function loadPreferences() {
 	icons.user.settings = prefs.get('icons');
 	icons.iconSet = getIconSet(prefs.get('iconset'));
 	icons.secondary = prefs.get('secondary');
-	icons.foldericons = prefs.get('foldericons');
+	icons.folderIcons = prefs.get('foldericons');
 	commandSecondary.setChecked(icons.secondary);
-	commandFolderIcons.setChecked(icons.foldericons);
+	commandFolderIcons.setChecked(icons.folderIcons);
 	commandThemeIon.setChecked(icons.iconSet === IconSet.IconIon);
 	commandThemeDev.setChecked(icons.iconSet === IconSet.IconDev);
 }
@@ -78,19 +78,18 @@ const createIcon = (data: Icon, secondary: boolean) => {
 };
 
 const provider = (entry) => {
-	let data;
+	let data: Icon[];
 	if (!entry.isFile) {
-		if (!icons.foldericons) {
+		if (!icons.folderIcons) {
 			return;
-		} 
-		else {
+		} else {
 			data = [{
 				color: "#666",
 				icon: "ion-android-folder",
 				size: 15
 			}];
 		}
-	else {
+	} else {
 		data = findInDictionary(icons, entry.name, icons.secondary, (a, b) => {
 			if (a === b) return true;
 			if (a === undefined || b === undefined) return false;
@@ -112,7 +111,7 @@ FileTreeView.addIconProvider(provider);
 
 prefs.on('change', () => {
 	loadPreferences();
-	$('.jstree-open>a, .jstree-closed>a').css('margin-left', icons.foldericons ? '13px' : '0');
+	$('.jstree-open>a, .jstree-closed>a').css('margin-left', icons.folderIcons ? '13px' : '0');
 	ProjectManager.rerenderTree();
 	WorkingSetView.refresh(true);
 });
